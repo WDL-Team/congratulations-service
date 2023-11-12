@@ -23,9 +23,23 @@ function getParams(data: PlainObject | [], parentKey?: string) {
   return result
 }
 
-export default function queryString(data: PlainObject) {
+export function queryToString(data: PlainObject) {
   if (!isPlainObject(data)) throw new Error('input must be an object')
   return getParams(data)
     .map(arr => arr.join('='))
     .join('&')
+}
+
+export function queryToObject(query: string) {
+  const pairs = query.split('&')
+  const obj: Record<string, string> = {}
+
+  for (const i in pairs) {
+    if (pairs[i] === '') continue
+
+    const pair = pairs[i].split('=')
+    obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1])
+  }
+
+  return obj
 }
