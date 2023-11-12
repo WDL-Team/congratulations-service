@@ -6,9 +6,10 @@ type TRouterResponse = {
 
 export const useRouter = (): TRouterResponse => {
   if (typeof window !== 'undefined') {
+    const protocol = window.location?.protocol || 'http:'
     return {
       pathname: window.location?.pathname || '/',
-      host: window.location?.host || '',
+      host: `${protocol}//${window.location?.host || ''}`,
       query: window.location?.search.slice(1) || '',
     }
   }

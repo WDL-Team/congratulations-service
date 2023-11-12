@@ -6,7 +6,7 @@ export const StContainer = styled.div`
   display: flex;
   flex-direction: column;
   border-radius: 0.75rem;
-  padding: 0 2rem 0 1rem;
+  padding: 0 3.5rem 0 1rem;
   height: 3rem;
   width: 100%;
   box-sizing: border-box;
@@ -35,6 +35,20 @@ const filter: Record<ThemeVariants, RuleSet> = {
 export const StCopyButton = styled.img`
   position: absolute;
   right: 0.5rem;
+  top: 1rem;
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  ${props => filter[props.theme.name]};
+  opacity: 0.75;
+  &:hover {
+    opacity: 1;
+  }
+`
+
+export const StOpenButton = styled.img`
+  position: absolute;
+  right: 2rem;
   top: 1rem;
   width: 1rem;
   height: 1rem;

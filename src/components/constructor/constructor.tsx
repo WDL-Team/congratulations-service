@@ -17,8 +17,7 @@ export function Constructor() {
     for (const [key, value] of form.entries()) {
       data[key] = String(value)
     }
-    console.log(data)
-    console.log(`${host}?${queryToString(data)}`)
+
     setResult(`${host}?${queryToString(data)}`)
   }
 
