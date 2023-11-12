@@ -1,7 +1,7 @@
 export type ThemeVariants = 'dark' | 'light'
 
 export interface ITheme {
-  name: string
+  name: ThemeVariants
   colors: Record<string, string>
 }
 
