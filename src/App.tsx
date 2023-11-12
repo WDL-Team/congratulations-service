@@ -1,41 +1,14 @@
-import { useState } from 'react'
 import { ThemeProvider } from './components/theme'
 import { Layout } from './components/layout'
-import { FormInput } from './components/form/input'
-import { FormText } from './components/form/text'
-import { FormSubmit } from './components/form/submit'
-import { CopyInput } from './components/copy'
-import { queryToString, queryToObject } from './utils/query'
+import { Constructor } from './components/constructor'
 import { useRouter } from './hooks/useRouter'
 
 function App() {
-  const { host, query } = useRouter()
-  const [result, setResult] = useState('')
-
-  const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault()
-    const form = new FormData(event.target as HTMLFormElement)
-    const data: Record<string, string> = {}
-    for (const [key, value] of form.entries()) {
-      data[key] = String(value)
-    }
-    console.log(data)
-    console.log(`${host}?${queryToString(data)}`)
-    setResult(`${host}?${queryToString(data)}`)
-  }
+  const { query } = useRouter()
 
   return (
     <ThemeProvider>
-      <Layout>
-        <div style={{ width: '70%' }}>
-          <form onSubmit={submitHandler}>
-            <FormInput type="text" name="name" placeholder="Имя получателя поздравления" error={false} errorMessage="Проверьте имя" />
-            <FormText name="text" placeholder="Текст поздравления" error={false} errorMessage="Напишите своё поздравление" />
-            <FormSubmit>Создать</FormSubmit>
-          </form>
-          {result && <CopyInput text={result} />}
-        </div>
-      </Layout>
+      <Layout>{!query && <Constructor />}</Layout>
     </ThemeProvider>
   )
 }
