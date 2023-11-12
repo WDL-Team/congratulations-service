@@ -1,58 +1,46 @@
-import { useState, FC } from 'react'
 import styled from 'styled-components'
 import { useTheme } from '.'
-import iconTheme from '../../assets/iconTheme.svg'
+import iconDark from '../../assets/crescent-moon.svg'
+import iconLight from '../../assets/sun-shape.svg'
 
-export const ThemeSwitcher: FC = () => {
-  const { themeName, setTheme } = useTheme()
-  const [dark, setDark] = useState<boolean>(themeName === 'dark')
+export const ThemeSwitcher = () => {
+  const { themeName, switchTheme } = useTheme()
 
-  const handleClick = () => {
-    setDark(prev => {
-      if (setTheme) {
-        setTimeout(() => {
-          setTheme(prev ? 'light' : 'dark')
-        }, 250)
-      }
-      return !prev
-    })
-  }
   return (
-    <StSwitchBlock>
-      <StIcon $icon={iconTheme} />
-      <StSwitchContainer onClick={handleClick} $dark={dark}>
-        <StSwitchToggle $dark={dark} />
-      </StSwitchContainer>
-    </StSwitchBlock>
+    <StSwitchContainer onClick={switchTheme} name={themeName}>
+      <StIcon name="dark" />
+      <StIcon name="light" />
+      <StSwitchToggle name={themeName} />
+    </StSwitchContainer>
   )
 }
 
-const StSwitchBlock = styled.div`
-  margin: 0 0 0 auto;
-  display: flex;
-  gap: 10px;
-`
-const StSwitchContainer = styled.div<{ $dark?: boolean }>`
+const StSwitchContainer = styled.div<{ name: string }>`
+  position: relative;
   display: inline-block;
   width: 48px;
   height: 24px;
-  background-color: ${props => (props.$dark ? props.theme.colors.tertiary : props.theme.colors.accent)};
+  background-color: ${props => (props.name === 'dark' ? props.theme.colors.tertiary : props.theme.colors.accent)};
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;
 `
-const StSwitchToggle = styled.div<{ $dark: boolean }>`
+const StSwitchToggle = styled.div<{ name: string }>`
   margin-top: 2px;
   width: 20px;
   height: 20px;
   background-color: ${props => props.theme.colors.secondary};
   border-radius: 50%;
-  transform: translateX(${props => (props.$dark ? '26px' : '2px')});
+  transform: translateX(${props => (props.name === 'dark' ? '26px' : '2px')});
   transition: transform 0.2s ease-in-out;
 `
-const StIcon = styled.div<{ $icon: string }>`
-  width: 24px;
-  height: 24px;
-  background-image: url(${props => props.$icon});
+const StIcon = styled.div<{ name: string }>`
+  position: absolute;
+  top: 3px;
+  left: ${props => (props.name === 'dark' ? '3px' : 'auto')};
+  right: ${props => (props.name === 'light' ? '3px' : 'auto')};
+  width: 18px;
+  height: 18px;
+  background-image: url(${props => (props.name === 'dark' ? iconDark : iconLight)});
   background-size: cover;
 `
