@@ -11,7 +11,7 @@ export const ThemeArguments: { [key in ThemeVariants]: ITheme } = {
     colors: {
       primary: '#FFDD87',
       secondary: '#FFF',
-      tertiary: '#E4640A',
+      tertiary: '#fdca48',
       invert: '#000',
       accent: '#E4640A',
       error: '#F00',
@@ -26,7 +26,7 @@ export const ThemeArguments: { [key in ThemeVariants]: ITheme } = {
     colors: {
       primary: '#294383',
       secondary: '#233153',
-      tertiary: '#294383',
+      tertiary: '#677496',
       invert: '#FFF',
       accent: '#6D96FF',
       error: '#F00',

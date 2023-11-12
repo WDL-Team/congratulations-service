@@ -20,8 +20,12 @@ export const StInput = styled.input`
   width: 100%;
   height: 100%;
   margin-top: 0.5rem;
+  color: ${props => props.theme.colors.text};
+  background-color: ${props => props.theme.colors.secondary};
   -webkit-text-fill-color: ${props => props.theme.colors.text};
-  transition: background-color 5000s ease-in-out 0s;
+  &:autofill {
+    transition: background-color 5000s ease-in-out 0s;
+  }
 `
 
 export const StLabel = styled.label`

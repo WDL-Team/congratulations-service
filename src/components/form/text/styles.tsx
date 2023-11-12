@@ -20,6 +20,8 @@ export const StTextArea = styled.textarea`
   width: 100%;
   height: 100%;
   margin-top: 1.5rem;
+  color: ${props => props.theme.colors.text};
+  background-color: ${props => props.theme.colors.secondary};
 `
 
 export const StLabel = styled.label`
