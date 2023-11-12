@@ -3,11 +3,11 @@ import { FormInput } from '../form/input'
 import { FormText } from '../form/text'
 import { FormSubmit } from '../form/submit'
 import { CopyInput } from '../copy'
-import { queryToString, queryToObject } from '../../utils/query'
+import { queryToString } from '../../utils/query'
 import { useRouter } from '../../hooks/useRouter'
 
 export function Constructor() {
-  const { host, query } = useRouter()
+  const { host } = useRouter()
   const [result, setResult] = useState('')
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
@@ -25,6 +25,7 @@ export function Constructor() {
   return (
     <div style={{ width: '70%' }}>
       <form onSubmit={submitHandler}>
+        <h2 style={{ alignSelf: 'center' }}>Подготовка поздравления</h2>
         <FormInput type="text" name="name" placeholder="Имя получателя поздравления" error={false} errorMessage="Проверьте имя" />
         <FormText name="text" placeholder="Текст поздравления" error={false} errorMessage="Напишите своё поздравление" />
         <FormSubmit>Создать</FormSubmit>

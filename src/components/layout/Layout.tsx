@@ -21,4 +21,5 @@ const StMain = styled.main`
   align-items: center;
   flex-grow: 1;
   background-color: ${props => props.theme.colors.primary};
+  color: ${props => props.theme.colors.text};
 `

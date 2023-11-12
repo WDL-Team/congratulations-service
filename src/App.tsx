@@ -1,6 +1,7 @@
 import { ThemeProvider } from './components/theme'
 import { Layout } from './components/layout'
 import { Constructor } from './components/constructor'
+import { Congrats } from './components/congrats'
 import { useRouter } from './hooks/useRouter'
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
 
   return (
     <ThemeProvider>
-      <Layout>{!query && <Constructor />}</Layout>
+      <Layout>{query ? <Congrats query={query} /> : <Constructor />}</Layout>
     </ThemeProvider>
   )
 }
