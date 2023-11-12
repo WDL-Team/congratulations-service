@@ -7,7 +7,8 @@ export const StContainer = styled.div`
   border-radius: 0.75rem;
   padding: 0 0.75rem 0 1rem;
   height: 5rem;
-  width: 34rem;
+  width: 100%;
+  box-sizing: border-box;
   margin-top: 0.5rem;
   border: 1px solid ${props => props.theme.colors.primary};
   background-color: ${props => props.theme.colors.secondary};
@@ -28,7 +29,7 @@ export const StLabel = styled.label`
   position: absolute;
   pointer-events: none;
   left: 1rem;
-  top: 0.8rem;
+  top: 0.7rem;
   transition: 0.3s ease all;
   color: ${props => props.theme.colors.text};
   opacity: 0.7;
