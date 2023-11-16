@@ -2,8 +2,6 @@ import { queryToObject } from '../../utils/query'
 import { StContainer } from './styles'
 import { getCardViewByName } from '../card-view'
 
-const dafaultCardView = 'blank'
-
 type TCongratsProps = {
   query: string
   preview?: boolean
@@ -11,8 +9,7 @@ type TCongratsProps = {
 
 export function Congrats({ query, preview }: TCongratsProps) {
   const data = queryToObject(query)
-  const { card = dafaultCardView, ...props } = data
-
+  const { card, ...props } = data
   const CardView = getCardViewByName(card)
 
   return (

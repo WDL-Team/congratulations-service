@@ -17,7 +17,7 @@ export function Constructor() {
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const form = new FormData(event.target as HTMLFormElement)
-    const data: Record<string, string> = {}
+    const data: Record<string, string> = { text: '', name: '' }
     for (const [key, value] of form.entries()) {
       data[key] = String(value)
     }
@@ -29,13 +29,13 @@ export function Constructor() {
     <StContainer>
       <article>
         <form onSubmit={submitHandler}>
-          <h2 style={{ alignSelf: 'center' }}>Подготовка поздравления</h2>
+          <h2 style={{ alignSelf: 'center' }}>Preparing congratulations</h2>
           <StNameWrap>
-            <FormInput type="text" name="name" placeholder="Кого поздравляем?" error={false} errorMessage="Проверьте имя" />
+            <FormInput type="text" name="name" placeholder="Recipient name" error={false} errorMessage="Check name" />
             <FormSelect name="card" options={cardViewNames} placeholder="Card template" />
           </StNameWrap>
-          <FormText name="text" placeholder="Текст поздравления" error={false} errorMessage="Напишите своё поздравление" />
-          <FormSubmit>Создать</FormSubmit>
+          <FormText name="text" placeholder="Congratulation text" error={false} errorMessage="Write your congratulations" />
+          <FormSubmit>Perform</FormSubmit>
         </form>
         {result && <CopyInput text={`${host}?${result}`} />}
       </article>
