@@ -7,7 +7,7 @@ export const FormSelect: FC<FormSelectProps> = ({ name, options, placeholder, er
     <StContainer>
       <StSelect name={name}>
         {options.map((opt, id) => (
-          <option value={opt} key={id}>
+          <option value={id} key={id}>
             {opt}
           </option>
         ))}

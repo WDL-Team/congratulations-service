@@ -16,8 +16,8 @@ const preview = css`
 
 export const StContainer = styled.article<{ $preview: boolean }>`
   box-sizing: border-box;
-  padding: 2rem;
   width: ${props => (props.$preview ? '100%' : 'calc(100% - 4rem)')};
+  padding: ${props => (props.$preview ? '1rem' : '2rem')};
   margin: ${props => (props.$preview ? '0' : '2rem')};
   ${props => props.$preview && preview}
 `
