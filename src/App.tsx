@@ -10,7 +10,6 @@ function App() {
   return (
     <ThemeProvider>
       <Layout>{query ? <Congrats query={query} /> : <Constructor />}</Layout>
-
     </ThemeProvider>
   )
 }

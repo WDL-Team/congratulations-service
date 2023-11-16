@@ -1,3 +1,5 @@
+import type { TCongratsData } from '../types/congrats'
+
 type PlainObject<T = any> = { [k in string]: T }
 
 function isPlainObject(value: unknown): value is PlainObject {
@@ -30,7 +32,7 @@ export function queryToString(data: PlainObject) {
     .join('&')
 }
 
-export function queryToObject(query: string) {
+export function queryToObject(query: string): TCongratsData {
   const pairs = query.split('&')
   const obj: Record<string, string> = {}
 
@@ -41,5 +43,5 @@ export function queryToObject(query: string) {
     obj[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1])
   }
 
-  return obj
+  return obj as TCongratsData
 }

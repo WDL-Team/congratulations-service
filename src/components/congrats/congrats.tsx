@@ -1,15 +1,24 @@
-import type { TCongratsData } from '../../types/congrats'
 import { queryToObject } from '../../utils/query'
 import { StContainer } from './styles'
+import { getCardViewByName } from '../card-view'
 
-export function Congrats({ query }: { query: string }) {
-  const data = queryToObject(query) as TCongratsData
-  const { name = '', text = '' } = data
+const dafaultCardView = 'blank'
+
+type TCongratsProps = {
+  query: string
+  preview?: boolean
+}
+
+export function Congrats({ query, preview }: TCongratsProps) {
+  const data = queryToObject(query)
+  const { card = dafaultCardView, ...props } = data
+  console.log(props)
+
+  const CardView = getCardViewByName(card)
 
   return (
-    <StContainer>
-      <h1>{name}</h1>
-      <p>{text}</p>
+    <StContainer $preview={!!preview}>
+      <CardView {...props} />
     </StContainer>
   )
 }
