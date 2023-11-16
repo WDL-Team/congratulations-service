@@ -8,6 +8,8 @@ enum CardViewName {
   new = 'new',
 }
 
+export const cardViewNames = Object.values(CardViewName)
+
 const dafaultCardView = CardViewName.blank
 
 type TCardView = (props: TCardViewProps) => JSX.Element

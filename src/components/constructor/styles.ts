@@ -19,3 +19,12 @@ export const StContainer = styled.div`
     }
   }
 `
+export const StNameWrap = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+  > div {
+    width: 50%;
+  }
+`
