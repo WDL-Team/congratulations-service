@@ -12,12 +12,13 @@ type TCongratsProps = {
 export function Congrats({ query, preview }: TCongratsProps) {
   const data = queryToObject(query)
   const { card = dafaultCardView, ...props } = data
-  console.log(props)
 
   const CardView = getCardViewByName(card)
 
   return (
     <StContainer $preview={!!preview}>
+      {/* TODO: remove */}
+      <p>card-wiew: {card}</p>
       <CardView {...props} />
     </StContainer>
   )

@@ -1,12 +1,14 @@
 import { useState } from 'react'
 import { FormInput } from '../form/input'
+import { FormSelect } from '../form/select'
 import { FormText } from '../form/text'
 import { FormSubmit } from '../form/submit'
 import { CopyInput } from '../copy'
 import { queryToString } from '../../utils/query'
 import { useRouter } from '../../hooks/useRouter'
 import { Congrats } from '../congrats'
-import { StContainer } from './styles'
+import { StContainer, StNameWrap } from './styles'
+import { cardViewNames } from '../card-view'
 
 export function Constructor() {
   const { host } = useRouter()
@@ -28,7 +30,10 @@ export function Constructor() {
       <article>
         <form onSubmit={submitHandler}>
           <h2 style={{ alignSelf: 'center' }}>Подготовка поздравления</h2>
-          <FormInput type="text" name="name" placeholder="Имя получателя поздравления" error={false} errorMessage="Проверьте имя" />
+          <StNameWrap>
+            <FormInput type="text" name="name" placeholder="Кого поздравляем?" error={false} errorMessage="Проверьте имя" />
+            <FormSelect name="card" options={cardViewNames} placeholder="Card template" />
+          </StNameWrap>
           <FormText name="text" placeholder="Текст поздравления" error={false} errorMessage="Напишите своё поздравление" />
           <FormSubmit>Создать</FormSubmit>
         </form>
