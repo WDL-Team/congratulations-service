@@ -17,8 +17,6 @@ export function Congrats({ query, preview }: TCongratsProps) {
 
   return (
     <StContainer $preview={!!preview}>
-      {/* TODO: remove */}
-      <p>card-wiew: {card}</p>
       <CardView {...props} />
     </StContainer>
   )
