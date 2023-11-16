@@ -15,7 +15,7 @@ export const CopyInput = ({ text }: { text: string }) => {
   return (
     <StContainer>
       <StInput type="text" value={text} readOnly />
-      <StOpenButton src={openImg} alt="open" title="open" onClick={() => window.open(text, '_self')} />
+      <StOpenButton src={openImg} alt="open" title="open" onClick={() => window.open(text, '_blank')} />
       <StCopyButton src={copyImg} alt="copy" title="copy" onClick={handleCopy} />
       {copyed && <StMessage>Copyed!</StMessage>}
     </StContainer>
