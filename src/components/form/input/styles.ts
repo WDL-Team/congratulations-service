@@ -21,6 +21,7 @@ export const StInput = styled.input`
   width: 100%;
   height: 100%;
   margin-top: 0.5rem;
+  padding: 0;
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.secondary};
   -webkit-text-fill-color: ${props => props.theme.colors.text};
@@ -40,13 +41,11 @@ export const StLabel = styled.label`
 
   ${StInput}:focus ~ & {
     font-size: 0.8rem;
-    left: 1rem;
     top: 0;
   }
 
   ${StInput}:not(:placeholder-shown) ~ & {
     font-size: 0.8rem;
-    left: 1rem;
     top: 0;
   }
 `

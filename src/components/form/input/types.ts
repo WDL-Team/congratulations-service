@@ -4,4 +4,5 @@ export interface FormInputProps {
   placeholder?: string
   error?: boolean
   errorMessage?: string
+  onChange?: React.ChangeEventHandler<HTMLInputElement>
 }

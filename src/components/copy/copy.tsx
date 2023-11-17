@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { StContainer, StCopyButton, StOpenButton, StInput, StMessage } from './styles'
+import { StContainer, StCopyButton, StOpenButton, StInput, StMessage, StLabel } from './styles'
 import copyImg from '../../assets/copy.svg'
 import openImg from '../../assets/open.svg'
 
-export const CopyInput = ({ text }: { text: string }) => {
+export const CopyInput = ({ text, placeholder }: { text: string; placeholder: string }) => {
   const [copyed, setCopyed] = useState(false)
 
   const handleCopy = () => {
@@ -15,6 +15,7 @@ export const CopyInput = ({ text }: { text: string }) => {
   return (
     <StContainer>
       <StInput type="text" value={text} readOnly />
+      <StLabel>{placeholder}</StLabel>
       <StOpenButton src={openImg} alt="open" title="open" onClick={() => window.open(text, '_blank')} />
       <StCopyButton src={copyImg} alt="copy" title="copy" onClick={handleCopy} />
       {copyed && <StMessage>Copyed!</StMessage>}
