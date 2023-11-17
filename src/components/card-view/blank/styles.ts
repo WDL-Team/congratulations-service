@@ -9,4 +9,8 @@ export const StContainer = styled.div`
   > div {
     width: fit-content;
   }
+
+  & p {
+    word-break: break-all;
+  }
 `

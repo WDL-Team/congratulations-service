@@ -6,7 +6,6 @@ export const StContainer = styled.div`
   flex-direction: column;
   border-radius: 0.75rem;
   padding: 0 0.75rem 0 1rem;
-  height: 5rem;
   width: 100%;
   box-sizing: border-box;
   margin-top: 0.5rem;
@@ -21,31 +20,28 @@ export const StTextArea = styled.textarea`
   width: 100%;
   height: 100%;
   margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
   padding: 0;
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.secondary};
+  resize: vertical;
 `
 
 export const StLabel = styled.label`
   position: absolute;
   pointer-events: none;
   left: 1rem;
-  top: 0.7rem;
-  transition: 0.3s ease all;
-  color: ${props => props.theme.colors.text};
+  top: 0;
   opacity: 0.7;
+  font-size: 0.8rem;
+`
 
-  ${StTextArea}:focus ~ & {
-    font-size: 0.8rem;
-    left: 1rem;
-    top: 0;
-  }
-
-  ${StTextArea}:not(:placeholder-shown) ~ & {
-    font-size: 0.8rem;
-    left: 1rem;
-    top: 0;
-  }
+export const StRest = styled.span`
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  opacity: 0.7;
+  font-size: 0.8rem;
 `
 
 export const StSpan = styled.span`

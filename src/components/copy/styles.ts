@@ -78,15 +78,20 @@ export const StMessage = styled.div`
   @keyframes show {
     0% {
       opacity: 0;
+      transform: translateY(1rem);
     }
     10% {
       opacity: 1;
+    }
+    50% {
+      transform: translateY(0);
     }
     90% {
       opacity: 1;
     }
     100% {
       opacity: 0;
+      transform: translateY(0);
     }
   }
   font-size: 0.75rem;
