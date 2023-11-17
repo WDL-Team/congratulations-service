@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { StContainer, StCopyButton, StOpenButton, StInput, StMessage, StLabel } from './styles'
-import copyImg from '../../assets/copy.svg'
-import openImg from '../../assets/open.svg'
+import copyImg from '../../../assets/copy.svg'
+import openImg from '../../../assets/open.svg'
 
 export const CopyInput = ({ text, placeholder }: { text: string; placeholder: string }) => {
   const [copyed, setCopyed] = useState(false)
