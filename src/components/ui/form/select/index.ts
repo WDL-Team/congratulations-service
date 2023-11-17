@@ -1,1 +1,2 @@
-export * from './formSelect'
+export { FormSelect } from './formSelect'
+export { Select } from './select'

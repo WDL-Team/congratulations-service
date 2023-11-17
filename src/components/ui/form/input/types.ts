@@ -1,4 +1,4 @@
-export interface FormInputProps {
+export interface TFormInputProps {
   name: string
   type: string
   placeholder?: string

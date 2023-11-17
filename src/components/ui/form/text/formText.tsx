@@ -1,13 +1,37 @@
-import { FC } from 'react'
-import { FormTextProps } from './types'
-import { StContainer, StLabel, StSpan, StTextArea, StRest } from './styles'
+import React, { FC, useState, useEffect, useRef } from 'react'
+import { TFormTextProps } from './types'
+import { StContainer, StSpan, StRest, StTextArea, StLabel, StTemplateWrap } from './styles'
+import { Select } from '../select'
+import { useSettings } from '../../../theme'
+import { textTemplates } from '../../../../const/templates'
 
-export const FormText: FC<FormTextProps> = ({ name, placeholder, rest, onChange, errorMessage, error }) => {
+export const FormText: FC<TFormTextProps> = ({ name, placeholder, rest, onChange, callback, errorMessage, error }) => {
+  const { lang } = useSettings()
+  const [options, setOptions] = useState<string[]>([])
+  const ref = useRef<HTMLTextAreaElement>(null)
+
+  useEffect(() => {
+    setOptions(textTemplates.map(obj => obj[lang].name))
+  }, [lang])
+
+  const selectTemplateHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    event.preventDefault()
+    if (ref.current) {
+      const n = Number(event.target.value) || 0
+      ref.current.value = textTemplates[n][lang].text
+      if (callback) callback(ref.current)
+    }
+  }
+
   return (
     <StContainer>
-      <StTextArea className="scrolled" name={name} placeholder={''} onChange={onChange} />
+      <StTextArea ref={ref} className="scrolled" name={name} onChange={onChange} />
       <StLabel htmlFor={name}>{placeholder}</StLabel>
       <StRest>{rest}</StRest>
+      <StTemplateWrap>
+        <span>Template:</span>
+        <Select name="template" options={options} onChange={selectTemplateHandler} />
+      </StTemplateWrap>
       {error && <StSpan>{errorMessage}</StSpan>}
     </StContainer>
   )

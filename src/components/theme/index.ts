@@ -1,6 +1,6 @@
 import React from 'react'
-import { ThemeContext } from './provider'
+import { SettingsContext } from './provider'
 
-export { ThemeProvider } from './provider'
+export { SettingsProvider } from './provider'
 export { ThemeSwitcher } from './switcher'
-export const useTheme = () => React.useContext(ThemeContext)
+export const useSettings = () => React.useContext(SettingsContext)

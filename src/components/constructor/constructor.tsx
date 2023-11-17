@@ -32,15 +32,24 @@ export function Constructor() {
 
   const changeHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     event.preventDefault()
-    const [name, value] = [event.target.name, event.target.value]
+    const [el, name, value] = [event.target, event.target.name, event.target.value]
 
-    if (event.target instanceof HTMLTextAreaElement) {
-      if (value.length > MAX) event.target.value = value.slice(0, MAX)
-      event.target.rows = Math.max(event.target.value.split('\n').length, 2)
-      setRest(MAX - event.target.value.length)
+    if (el instanceof HTMLTextAreaElement) {
+      if (value.length > MAX) el.value = value.slice(0, MAX)
+      textChange(el)
     }
 
     setResult(prev => queryToString({ [name]: value }, prev))
+  }
+
+  const textChange = (el: HTMLTextAreaElement) => {
+    el.rows = Math.max(el.value.split('\n').length, 2)
+    setRest(MAX - el.value.length)
+  }
+
+  const textChangeCallback = (el: HTMLTextAreaElement) => {
+    textChange(el)
+    setResult(prev => queryToString({ text: el.value }, prev))
   }
 
   return (
@@ -58,7 +67,7 @@ export function Constructor() {
               </StSwitcherWrap>
             </StOptionsWrap>
           </StNameWrap>
-          <FormText name="text" placeholder="Congratulation text" rest={rest} onChange={changeHandler} />
+          <FormText name="text" placeholder="Congratulation text" rest={rest} onChange={changeHandler} callback={textChangeCallback} />
           {/* <FormSubmit>Perform</FormSubmit> */}
         </form>
         {result && <CopyInput text={`${host}?${result}`} placeholder="Link to your custom congratulation:" />}
