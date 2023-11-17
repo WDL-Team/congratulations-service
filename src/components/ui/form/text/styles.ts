@@ -31,9 +31,19 @@ export const StLabel = styled.label`
   position: absolute;
   pointer-events: none;
   left: 1rem;
-  top: 0;
+  top: 0.7rem;
   opacity: 0.7;
-  font-size: 0.8rem;
+  transition: all 0.3s ease;
+
+  ${StTextArea}:focus ~ & {
+    font-size: 0.8rem;
+    top: 0;
+  }
+
+  ${StTextArea}:not(:placeholder-shown) ~ & {
+    font-size: 0.8rem;
+    top: 0;
+  }
 `
 
 export const StRest = styled.span`
