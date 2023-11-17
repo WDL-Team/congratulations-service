@@ -19,7 +19,7 @@ export const StTextArea = styled.textarea`
   border: none;
   width: 100%;
   height: 100%;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: 0.5rem;
   padding: 0;
   color: ${props => props.theme.colors.text};
@@ -58,4 +58,22 @@ export const StSpan = styled.span`
   margin-top: 0.438rem;
   font-size: 0.8rem;
   color: rgba(221, 76, 30, 1);
+`
+export const StTemplateWrap = styled.div`
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+
+  > select {
+    margin-top: 0.1rem;
+  }
+
+  > span {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
 `

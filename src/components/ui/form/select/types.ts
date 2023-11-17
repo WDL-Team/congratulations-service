@@ -1,4 +1,4 @@
-export interface FormSelectProps {
+export interface TFormSelectProps {
   name: string
   options: string[]
   placeholder: string

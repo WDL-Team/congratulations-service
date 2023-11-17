@@ -1,17 +1,12 @@
 import { FC } from 'react'
-import { FormSelectProps } from './types'
-import { StContainer, StLabel, StSpan, StSelect } from './styles'
+import { TFormSelectProps } from './types'
+import { Select } from '.'
+import { StContainer, StLabel, StSpan } from './styles'
 
-export const FormSelect: FC<FormSelectProps> = ({ name, options, placeholder, onChange, errorMessage, error }) => {
+export const FormSelect: FC<TFormSelectProps> = ({ name, options, placeholder, onChange, errorMessage, error }) => {
   return (
     <StContainer>
-      <StSelect name={name} onChange={onChange}>
-        {options.map((opt, id) => (
-          <option value={id} key={id}>
-            {opt}
-          </option>
-        ))}
-      </StSelect>
+      <Select name={name} options={options} onChange={onChange} />
       <StLabel htmlFor={name}>{placeholder}</StLabel>
       {error && <StSpan>{errorMessage}</StSpan>}
     </StContainer>
