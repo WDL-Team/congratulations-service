@@ -25,9 +25,10 @@ function getParams(data: PlainObject | [], parentKey?: string) {
   return result
 }
 
-export function queryToString(data: PlainObject) {
+export function queryToString(data: PlainObject, prev?: string) {
   if (!isPlainObject(data)) throw new Error('input must be an object')
-  return getParams(data)
+  const obj = prev ? { ...queryToObject(prev), ...data } : data
+  return getParams(obj)
     .map(arr => arr.join('='))
     .join('&')
 }
