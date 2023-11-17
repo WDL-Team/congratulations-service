@@ -3,19 +3,21 @@ import { FormInput } from '../form/input'
 import { FormSelect } from '../form/select'
 import { FormText } from '../form/text'
 // import { FormSubmit } from '../form/submit'
-import { CopyInput } from '../copy'
+import { CopyInput } from '../ui/copy'
 import { queryToString } from '../../utils/query'
 import { useRouter } from '../../hooks/useRouter'
 import { Congrats } from '../congrats'
-import { StContainer, StNameWrap } from './styles'
+import { StContainer, StNameWrap, StOptionsWrap, StSwitcherWrap } from './styles'
 import { cardViewNames } from '../card-view'
+import { Switcher } from '../ui/switcher'
 
-const MAX = 2024 - 18 - 6 - 28 // Max url length - host length - card - name
+const MAX = 2024 - 18 - 6 - 28 // Max url length - host - card - name length
 
 export function Constructor() {
   const { host } = useRouter()
   const [result, setResult] = useState('')
-  const [rest, setRest] = useState(0)
+  const [rest, setRest] = useState(MAX)
+  const [preview, setPreview] = useState(true)
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -42,20 +44,26 @@ export function Constructor() {
   }
 
   return (
-    <StContainer>
+    <StContainer $preview={preview}>
       <article>
         <form onSubmit={submitHandler}>
           <h2 style={{ alignSelf: 'center' }}>Preparing congratulations</h2>
           <StNameWrap>
             <FormInput type="text" name="name" placeholder="Recipient name" onChange={changeHandler} />
-            <FormSelect name="card" options={cardViewNames} onChange={changeHandler} placeholder="Card template" />
+            <StOptionsWrap>
+              <FormSelect name="card" options={cardViewNames} onChange={changeHandler} placeholder="Card template" />
+              <StSwitcherWrap>
+                <span>Preview:</span>
+                <Switcher toggled={preview} onClick={() => setPreview(prev => !prev)} />
+              </StSwitcherWrap>
+            </StOptionsWrap>
           </StNameWrap>
           <FormText name="text" placeholder="Congratulation text" rest={rest} onChange={changeHandler} />
           {/* <FormSubmit>Perform</FormSubmit> */}
         </form>
         {result && <CopyInput text={`${host}?${result}`} placeholder="Link to your custom congratulation:" />}
       </article>
-      <Congrats query={result} preview={true} />
+      {preview && <Congrats query={result} preview={true} />}
     </StContainer>
   )
 }
