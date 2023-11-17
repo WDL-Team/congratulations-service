@@ -34,7 +34,7 @@ export function Constructor() {
 
     if (event.target instanceof HTMLTextAreaElement) {
       if (value.length > MAX) event.target.value = value.slice(0, MAX)
-      event.target.rows = event.target.value.split('\n').length
+      event.target.rows = Math.max(event.target.value.split('\n').length, 2)
       setRest(MAX - event.target.value.length)
     }
 
