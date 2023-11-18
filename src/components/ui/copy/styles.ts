@@ -1,5 +1,5 @@
 import styled, { css, RuleSet } from 'styled-components'
-import { ThemeVariants } from '../../../const/theme'
+import { ThemeVariants } from '~/const/theme'
 
 export const StContainer = styled.div`
   position: relative;

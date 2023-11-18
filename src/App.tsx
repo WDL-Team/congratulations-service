@@ -1,4 +1,4 @@
-import { SettingsProvider } from './components/theme'
+import { SettingsProvider } from './components/context'
 import { Layout } from './components/layout'
 import { Constructor } from './components/constructor'
 import { Congrats } from './components/congrats'
