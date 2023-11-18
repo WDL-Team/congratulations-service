@@ -1,0 +1,1 @@
+export { SuspenseIndicator } from './suspense'
