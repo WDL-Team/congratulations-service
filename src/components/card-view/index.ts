@@ -1,11 +1,12 @@
 import { CardBlank } from './blank'
+import { CardInky } from './inky'
 import type { TCongratsData } from '~/types/congrats'
 
 export type TCardViewProps = Omit<TCongratsData, 'card'>
 
 enum CardView {
   Blank,
-  New,
+  Inky,
 }
 
 export const cardViewNames = Object.keys(CardView).filter(val => !Number.isFinite(Number(val)))
@@ -17,7 +18,7 @@ type TCardList = { [key in CardView]: TCardView }
 
 const cardViewList: TCardList = {
   [CardView.Blank]: CardBlank,
-  [CardView.New]: CardBlank,
+  [CardView.Inky]: CardInky,
 }
 
 export const getCardViewByName = (card: number | string = 0) => {
