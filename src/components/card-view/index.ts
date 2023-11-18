@@ -1,5 +1,5 @@
 import { CardBlank } from './blank'
-import type { TCongratsData } from '../../types/congrats'
+import type { TCongratsData } from '~/types/congrats'
 
 export type TCardViewProps = Omit<TCongratsData, 'card'>
 

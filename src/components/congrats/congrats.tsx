@@ -1,4 +1,4 @@
-import { queryToObject } from '../../utils/query'
+import { queryToObject } from '~/utils/query'
 import { StContainer } from './styles'
 import { getCardViewByName } from '../card-view'
 

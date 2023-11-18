@@ -2,10 +2,10 @@ import React, { FC, useState, useEffect, useRef } from 'react'
 import { TFormTextProps } from './types'
 import { StContainer, StSpan, StRest, StTextArea, StLabel, StTemplateWrap } from './styles'
 import { Select } from '../select'
-import { useSettings } from '../../../theme'
-import { textTemplates } from '../../../../const/templates'
+import { useSettings } from '@/context'
+import { textTemplates } from '~/const/templates'
 
-export const FormText: FC<TFormTextProps> = ({ name, placeholder, rest, onChange, callback, errorMessage, error }) => {
+export const FormText: FC<TFormTextProps> = ({ name, placeholder, rest, onChange, errorMessage, error }) => {
   const { lang } = useSettings()
   const [options, setOptions] = useState<string[]>([])
   const ref = useRef<HTMLTextAreaElement>(null)
@@ -16,10 +16,11 @@ export const FormText: FC<TFormTextProps> = ({ name, placeholder, rest, onChange
 
   const selectTemplateHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     event.preventDefault()
+
     if (ref.current) {
       const n = Number(event.target.value) || 0
       ref.current.value = textTemplates[n][lang].text
-      if (callback) callback(ref.current)
+      if (onChange) onChange(ref.current)
     }
   }
 

@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import { FormInput } from '../ui/form/input'
-import { FormSelect } from '../ui/form/select'
-import { FormText } from '../ui/form/text'
+import React, { useState } from 'react'
+import { FormInput } from '@/ui/form/input'
+import { FormSelect } from '@/ui/form/select'
+import { FormText } from '@/ui/form/text'
 // import { FormSubmit } from '../form/submit'
-import { CopyInput } from '../ui/copy'
-import { queryToString } from '../../utils/query'
-import { useRouter } from '../../hooks/useRouter'
-import { Congrats } from '../congrats'
+import { CopyInput } from '@/ui/copy'
+import { queryToString } from '~/utils/query'
+import { useRouter } from '~/hooks/useRouter'
+import { Congrats } from '@/congrats'
 import { StContainer, StNameWrap, StOptionsWrap, StSwitcherWrap } from './styles'
-import { cardViewNames } from '../card-view'
-import { Switcher } from '../ui/switcher'
+import { cardViewNames } from '@/card-view'
+import { Switcher } from '@/ui/switcher'
 
-const MAX = 2024 - 18 - 6 - 28 // Max url length - host - card - name length
+const MAX = 2024 - 18 - 7 - 28 // Max url length - host - card - name length
 
 export function Constructor() {
   const { host } = useRouter()
@@ -30,26 +30,18 @@ export function Constructor() {
     setResult(queryToString(data))
   }
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    event.preventDefault()
-    const [el, name, value] = [event.target, event.target.name, event.target.value]
+  function changeHandler<T extends HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>(obj: React.ChangeEvent<T> | T) {
+    const isEvent = Object.hasOwn(obj, 'nativeEvent')
+    if (isEvent) (obj as React.ChangeEvent<T>).preventDefault()
+    const el = (isEvent ? (obj as React.ChangeEvent<T>).target : obj) as T
 
     if (el instanceof HTMLTextAreaElement) {
-      if (value.length > MAX) el.value = value.slice(0, MAX)
-      textChange(el)
+      if (el.value.length > MAX) el.value = el.value.slice(0, MAX)
+      el.rows = Math.max(el.value.split('\n').length, 2)
+      setRest(MAX - el.value.length)
     }
 
-    setResult(prev => queryToString({ [name]: value }, prev))
-  }
-
-  const textChange = (el: HTMLTextAreaElement) => {
-    el.rows = Math.max(el.value.split('\n').length, 2)
-    setRest(MAX - el.value.length)
-  }
-
-  const textChangeCallback = (el: HTMLTextAreaElement) => {
-    textChange(el)
-    setResult(prev => queryToString({ text: el.value }, prev))
+    setResult(prev => queryToString({ [el.name]: el.value }, prev))
   }
 
   return (
@@ -67,7 +59,7 @@ export function Constructor() {
               </StSwitcherWrap>
             </StOptionsWrap>
           </StNameWrap>
-          <FormText name="text" placeholder="Congratulation text" rest={rest} onChange={changeHandler} callback={textChangeCallback} />
+          <FormText name="text" placeholder="Congratulation text" rest={rest} onChange={changeHandler} />
           {/* <FormSubmit>Perform</FormSubmit> */}
         </form>
         {result && <CopyInput text={`${host}?${result}`} placeholder="Link to your custom congratulation:" />}

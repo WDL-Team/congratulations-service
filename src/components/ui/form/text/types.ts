@@ -4,8 +4,7 @@ export interface TFormTextProps {
   rest?: number
   error?: boolean
   errorMessage?: string
-  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>
-  callback?: (el: HTMLTextAreaElement) => void
+  onChange?: (arg: React.ChangeEvent<HTMLTextAreaElement> | HTMLTextAreaElement) => void
 }
 
 export interface TTextProps {

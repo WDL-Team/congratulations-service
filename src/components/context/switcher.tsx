@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { useSettings } from '.'
-import iconDark from '../../assets/crescent-moon.svg'
-import iconLight from '../../assets/sun-shape.svg'
+import iconDark from '~/assets/crescent-moon.svg'
+import iconLight from '~/assets/sun-shape.svg'
 
 export const ThemeSwitcher = () => {
   const { switchTheme } = useSettings()
