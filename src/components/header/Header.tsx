@@ -1,5 +1,5 @@
 import { styled } from 'styled-components'
-import { ThemeSwitcher } from '../theme'
+import { ThemeSwitcher } from '../context'
 
 export const Header = () => {
   return (

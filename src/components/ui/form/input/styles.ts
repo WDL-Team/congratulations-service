@@ -6,7 +6,7 @@ export const StContainer = styled.div`
   flex-direction: column;
   border-radius: 0.75rem;
   padding: 0 0.75rem 0 1rem;
-  height: 5rem;
+  height: 3rem;
   width: 100%;
   box-sizing: border-box;
   margin-top: 0.5rem;
@@ -15,14 +15,19 @@ export const StContainer = styled.div`
   color: ${props => props.theme.colors.text};
 `
 
-export const StTextArea = styled.textarea`
+export const StInput = styled.input`
   outline: none;
   border: none;
   width: 100%;
   height: 100%;
-  margin-top: 1.5rem;
+  margin-top: 0.5rem;
+  padding: 0;
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.secondary};
+  -webkit-text-fill-color: ${props => props.theme.colors.text};
+  &:autofill {
+    transition: background-color 5000s ease-in-out 0s;
+  }
 `
 
 export const StLabel = styled.label`
@@ -34,15 +39,13 @@ export const StLabel = styled.label`
   color: ${props => props.theme.colors.text};
   opacity: 0.7;
 
-  ${StTextArea}:focus ~ & {
+  ${StInput}:focus ~ & {
     font-size: 0.8rem;
-    left: 1rem;
     top: 0;
   }
 
-  ${StTextArea}:not(:placeholder-shown) ~ & {
+  ${StInput}:not(:placeholder-shown) ~ & {
     font-size: 0.8rem;
-    left: 1rem;
     top: 0;
   }
 `

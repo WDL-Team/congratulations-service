@@ -1,5 +1,5 @@
 import styled, { css, RuleSet } from 'styled-components'
-import { ThemeVariants } from '../../const/theme'
+import { ThemeVariants } from '~/const/theme'
 
 export const StContainer = styled.div`
   position: relative;
@@ -10,6 +10,7 @@ export const StContainer = styled.div`
   height: 3rem;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 0.5rem;
   border: 1px solid ${props => props.theme.colors.primary};
   background-color: ${props => props.theme.colors.secondary};
   color: ${props => props.theme.colors.text};
@@ -20,9 +21,22 @@ export const StInput = styled.input`
   border: none;
   width: 100%;
   height: 100%;
+  margin-top: 0.5rem;
+  padding: 0;
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.secondary};
 `
+
+export const StLabel = styled.label`
+  position: absolute;
+  pointer-events: none;
+  font-size: 0.8rem;
+  left: 1rem;
+  top: 0;
+  color: ${props => props.theme.colors.text};
+  opacity: 0.7;
+`
+
 const filter: Record<ThemeVariants, RuleSet> = {
   dark: css`
     filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(2344%) hue-rotate(335deg) brightness(119%) contrast(100%);
@@ -64,15 +78,20 @@ export const StMessage = styled.div`
   @keyframes show {
     0% {
       opacity: 0;
+      transform: translateY(1rem);
     }
     10% {
       opacity: 1;
+    }
+    50% {
+      transform: translateY(0);
     }
     90% {
       opacity: 1;
     }
     100% {
       opacity: 0;
+      transform: translateY(0);
     }
   }
   font-size: 0.75rem;

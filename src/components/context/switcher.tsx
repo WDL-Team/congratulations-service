@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { useTheme } from '.'
-import iconDark from '../../assets/crescent-moon.svg'
-import iconLight from '../../assets/sun-shape.svg'
+import { useSettings } from '.'
+import iconDark from '~/assets/crescent-moon.svg'
+import iconLight from '~/assets/sun-shape.svg'
 
 export const ThemeSwitcher = () => {
-  const { switchTheme } = useTheme()
+  const { switchTheme } = useSettings()
 
   return (
     <StSwitchContainer onClick={switchTheme}>

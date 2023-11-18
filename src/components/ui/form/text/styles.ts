@@ -6,7 +6,6 @@ export const StContainer = styled.div`
   flex-direction: column;
   border-radius: 0.75rem;
   padding: 0 0.75rem 0 1rem;
-  height: 3rem;
   width: 100%;
   box-sizing: border-box;
   margin-top: 0.5rem;
@@ -15,18 +14,17 @@ export const StContainer = styled.div`
   color: ${props => props.theme.colors.text};
 `
 
-export const StInput = styled.input`
+export const StTextArea = styled.textarea`
   outline: none;
   border: none;
   width: 100%;
   height: 100%;
-  margin-top: 0.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  padding: 0;
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.secondary};
-  -webkit-text-fill-color: ${props => props.theme.colors.text};
-  &:autofill {
-    transition: background-color 5000s ease-in-out 0s;
-  }
+  resize: vertical;
 `
 
 export const StLabel = styled.label`
@@ -34,25 +32,48 @@ export const StLabel = styled.label`
   pointer-events: none;
   left: 1rem;
   top: 0.7rem;
-  transition: 0.3s ease all;
-  color: ${props => props.theme.colors.text};
   opacity: 0.7;
+  transition: all 0.3s ease;
 
-  ${StInput}:focus ~ & {
+  ${StTextArea}:focus ~ & {
     font-size: 0.8rem;
-    left: 1rem;
     top: 0;
   }
 
-  ${StInput}:not(:placeholder-shown) ~ & {
+  ${StTextArea}:not(:placeholder-shown) ~ & {
     font-size: 0.8rem;
-    left: 1rem;
     top: 0;
   }
+`
+
+export const StRest = styled.span`
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  opacity: 0.7;
+  font-size: 0.8rem;
 `
 
 export const StSpan = styled.span`
   margin-top: 0.438rem;
   font-size: 0.8rem;
   color: rgba(221, 76, 30, 1);
+`
+export const StTemplateWrap = styled.div`
+  position: absolute;
+  top: 0;
+  left: 40%;
+  width: 30%;
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+
+  > select {
+    margin-top: 0.1rem;
+  }
+
+  > span {
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
 `
