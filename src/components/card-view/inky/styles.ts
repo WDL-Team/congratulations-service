@@ -43,6 +43,7 @@ export const StContainer = styled.div`
   height: 100%;
   background-image: url(${bgImage});
   background-size: cover;
+  background-position: center;
   ${props => filter[props.theme.name]};
   display: flex;
   flex-direction: column;
