@@ -1,9 +1,10 @@
 import { StContainer } from './styles'
 import type { TCardViewProps } from '..'
+import { parseText } from '../parse'
 
 export function CardInky(props: TCardViewProps) {
   const { name = '', text = '' } = props
-  const arr = text.split('\n').map((str, id) => <p key={`p_${id}`}>{str || '\u00A0'}</p>)
+  const arr = parseText(text)
 
   return (
     <StContainer>
