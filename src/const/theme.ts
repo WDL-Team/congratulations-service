@@ -2,12 +2,12 @@ import type { TThemeVariants } from '~/types/settings'
 
 type TColors = 'primary' | 'secondary' | 'tertiary' | 'invert' | 'accent' | 'error' | 'disabled' | 'focus' | 'link' | 'text'
 
-export type TTheme = {
+export interface ITheme {
   name: TThemeVariants
   colors: Record<TColors, string>
 }
 
-export const ThemeArguments: { [key in TThemeVariants]: TTheme } = {
+export const ThemeArguments: { [key in TThemeVariants]: ITheme } = {
   light: {
     name: 'light',
     colors: {

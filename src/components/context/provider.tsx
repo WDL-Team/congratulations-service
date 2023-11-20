@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeArguments, TTheme } from '~/const/theme'
+import { ThemeArguments, ITheme } from '~/const/theme'
 import { ThemeProvider as StThemeProvider } from 'styled-components'
 import Store from '~/utils/Store'
 import type { TSettings, TLanguage, TThemeVariants } from '~/types/settings'
@@ -16,7 +16,7 @@ type ThemeVariantsFunc = (theme: TThemeVariants) => TThemeVariants
 
 interface SettingsContextProps {
   themeName: TThemeVariants
-  theme: TTheme
+  theme: ITheme
   setTheme: ((theme: TThemeVariants | ThemeVariantsFunc) => void) | (() => void)
   switchTheme: () => void
   lang: TLanguage
@@ -25,7 +25,7 @@ interface SettingsContextProps {
 
 export const SettingsContext = React.createContext<SettingsContextProps>({
   themeName: sytemTheme,
-  get theme(): TTheme {
+  get theme(): ITheme {
     return ThemeArguments[this.themeName]
   },
   setTheme: () => {},

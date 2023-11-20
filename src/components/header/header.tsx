@@ -1,6 +1,7 @@
 import styled, { css, RuleSet } from 'styled-components'
-import { ThemeVariants } from '~/const/theme'
+import { TThemeVariants } from '~/types/settings'
 import { ThemeSwitcher } from '../context'
+import { LanguageSelector } from '@/context/selector'
 import logoImg from '~/assets/logo.svg'
 import headerImg from '~/assets/bg_header.svg'
 
@@ -8,11 +9,14 @@ export const Header = () => {
   return (
     <StHeader>
       <StHeaderBg />
-      <StLogoWrap>
+      <StGroupWrap>
         <StLogo />
         <h3 style={{ display: 'inline' }}>Congratulations service</h3>
-      </StLogoWrap>
-      <ThemeSwitcher />
+      </StGroupWrap>
+      <StGroupWrap>
+        <LanguageSelector />
+        <ThemeSwitcher />
+      </StGroupWrap>
     </StHeader>
   )
 }
@@ -26,13 +30,13 @@ const StHeader = styled.header`
   align-items: center;
   color: ${props => props.theme.colors.text};
 `
-const StLogoWrap = styled.div`
+const StGroupWrap = styled.div`
   z-index: 1;
   display: flex;
   align-items: center;
   column-gap: 1rem;
 `
-const filter: Record<ThemeVariants, RuleSet> = {
+const filter: Record<TThemeVariants, RuleSet> = {
   dark: css``,
   light: css`
     background-blend-mode: color-dodge;

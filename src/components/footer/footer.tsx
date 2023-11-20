@@ -1,5 +1,5 @@
 import styled, { css, RuleSet } from 'styled-components'
-import { ThemeVariants } from '~/const/theme'
+import { TThemeVariants } from '~/types/settings'
 import footerImg from '~/assets/bg_footer.svg'
 
 export const Footer = () => {
@@ -33,7 +33,7 @@ const StAboutWrap = styled.div`
     color: inherit;
   }
 `
-const filter: Record<ThemeVariants, RuleSet> = {
+const filter: Record<TThemeVariants, RuleSet> = {
   dark: css``,
   light: css`
     background-blend-mode: color-dodge;
