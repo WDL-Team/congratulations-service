@@ -27,7 +27,7 @@ export function LanguageSelector() {
   return (
     <StContainer>
       <StFlag $url={flags[lang]} />
-      <Select name="language" options={options} select={String(supportedLanguages.indexOf(lang))} onChange={changeHandler} />
+      <Select id="language" options={options} select={String(supportedLanguages.indexOf(lang))} onChange={changeHandler} />
     </StContainer>
   )
 }

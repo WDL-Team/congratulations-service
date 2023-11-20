@@ -6,11 +6,11 @@ export type TSelectProps = Omit<TFormSelectProps, 'placeholder'> & {
   select?: string
 }
 
-export const Select: FC<TSelectProps> = ({ name, options, select, onChange }) => {
+export const Select: FC<TSelectProps> = ({ id, options, select, onChange }) => {
   return (
-    <StSelect name={name} onChange={onChange} defaultValue={select}>
-      {options.map((opt, id) => (
-        <option value={id} key={id}>
+    <StSelect id={id} onChange={onChange} defaultValue={select}>
+      {options.map((opt, i) => (
+        <option value={i} key={i}>
           {opt}
         </option>
       ))}

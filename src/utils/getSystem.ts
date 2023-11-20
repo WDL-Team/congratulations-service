@@ -9,6 +9,6 @@ export const getSytemTheme = (): TThemeVariants => {
 
 export const getSystemLanguage = (): TLanguage => {
   let language = defaultValues.language
-  if (typeof navigator !== 'undefined' && navigator.language) language = navigator.language.slice(0, 2) as TLanguage
+  if (navigator?.language) language = navigator.language.slice(0, 2) as TLanguage
   return language
 }

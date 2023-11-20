@@ -1,5 +1,5 @@
 export interface TFormTextProps {
-  name: string
+  id: string
   placeholder?: string
   rest?: number
   error?: boolean
@@ -8,7 +8,7 @@ export interface TFormTextProps {
 }
 
 export interface TTextProps {
-  name: string
+  id: string
   placeholder?: string
   onChange?: React.ChangeEventHandler<HTMLTextAreaElement>
 }

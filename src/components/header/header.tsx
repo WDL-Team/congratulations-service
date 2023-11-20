@@ -2,16 +2,19 @@ import styled, { css, RuleSet } from 'styled-components'
 import { TThemeVariants } from '~/types/settings'
 import { ThemeSwitcher } from '../context'
 import { LanguageSelector } from '@/context/selector'
+import { useLocalization } from '~/hooks/useLocalization'
 import logoImg from '~/assets/logo.svg'
 import headerImg from '~/assets/bg_header.svg'
 
 export const Header = () => {
+  const { loc } = useLocalization()
+
   return (
     <StHeader>
       <StHeaderBg />
       <StGroupWrap>
         <StLogo />
-        <h3 style={{ display: 'inline' }}>Congratulations service</h3>
+        <h3>{loc('display_name')}</h3>
       </StGroupWrap>
       <StGroupWrap>
         <LanguageSelector />

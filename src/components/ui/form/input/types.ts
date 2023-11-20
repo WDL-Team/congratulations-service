@@ -1,5 +1,5 @@
 export interface TFormInputProps {
-  name: string
+  id: string
   type: string
   placeholder?: string
   error?: boolean

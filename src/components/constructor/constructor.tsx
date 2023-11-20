@@ -10,6 +10,7 @@ import { Congrats } from '@/congrats'
 import { StContainer, StNameWrap, StOptionsWrap, StSwitcherWrap } from './styles'
 import { cardViewNames } from '@/card-view'
 import { Switcher } from '@/ui/switcher'
+import { useLocalization } from '~/hooks/useLocalization'
 
 const MAX = 2024 - 18 - 7 - 28 // Max url length - host - card - name length
 
@@ -18,6 +19,7 @@ export function Constructor() {
   const [result, setResult] = useState('')
   const [rest, setRest] = useState(MAX)
   const [preview, setPreview] = useState(true)
+  const { loc } = useLocalization()
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -48,21 +50,21 @@ export function Constructor() {
     <StContainer $preview={preview}>
       <article>
         <form onSubmit={submitHandler}>
-          <h2 style={{ alignSelf: 'center' }}>Preparing congratulations</h2>
+          <h2 style={{ alignSelf: 'center' }}>{loc('constructor_header')}</h2>
           <StNameWrap>
-            <FormInput type="text" name="name" placeholder="Recipient name" onChange={changeHandler} />
+            <FormInput type="text" id="recipient_name" placeholder={loc('recipient_placeholder')} onChange={changeHandler} />
             <StOptionsWrap>
-              <FormSelect name="card" options={cardViewNames} onChange={changeHandler} placeholder="Card template" />
+              <FormSelect id="card_view" options={cardViewNames} onChange={changeHandler} placeholder={loc('card_placeholder')} />
               <StSwitcherWrap>
-                <span>Preview:</span>
+                <span>{loc('preview')}:</span>
                 <Switcher toggled={preview} onClick={() => setPreview(prev => !prev)} />
               </StSwitcherWrap>
             </StOptionsWrap>
           </StNameWrap>
-          <FormText name="text" placeholder="Congratulation text" rest={rest} onChange={changeHandler} />
+          <FormText id="textarea_text" placeholder={loc('textarea_placeholder')} rest={rest} onChange={changeHandler} />
           {/* <FormSubmit>Perform</FormSubmit> */}
         </form>
-        {result && <CopyInput text={`${host}?${result}`} placeholder="Link to your custom congratulation:" />}
+        {result && <CopyInput text={`${host}?${result}`} placeholder={loc('copy_placeholder')} />}
       </article>
       {preview && <Congrats query={result} preview={true} />}
     </StContainer>
