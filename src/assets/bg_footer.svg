@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><svg
+  id="b"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  viewBox="0 0 623.63 292.95"
+  preserveAspectRatio="none">
+  <defs>
+    <style>
+      .k {
+        fill: url(#g);
+      }
+      .l {
+        fill: url(#i);
+      }
+      .m {
+        fill: #233058;
+      }
+      .n {
+        fill: url(#h);
+      }
+      .o {
+        fill: #fff;
+      }
+      .p {
+        fill: url(#j);
+      }
+      .q {
+        fill: url(#f);
+      }
+    </style>
+    <linearGradient id="f" x1="0" y1="161.97" x2="623.63" y2="161.97" gradientTransform="translate(0 308.44) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#449dff" />
+      <stop offset="1" stop-color="#63f0ff" />
+    </linearGradient>
+    <linearGradient id="g" x1="27.97" y1="2.96" x2="97.61" y2="87.27" xlink:href="#f" />
+    <linearGradient id="h" x1="179.9" y1="56.98" x2="396.37" y2="56.98" xlink:href="#f" />
+    <linearGradient id="i" x1="328.36" y1="56.3" x2="356.89" y2="43.56" gradientTransform="translate(0 308.44) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#449dff" />
+      <stop offset="1" stop-color="#fff" />
+    </linearGradient>
+    <linearGradient id="j" x1="432.34" y1="149.99" x2="583.66" y2="274.91" xlink:href="#i" />
+  </defs>
+  <path class="m" d="m623.63,73.88v219.06H.01v-79.42c292.09-3.8,411.57-13.84,623.62-139.64Z" />
+  <path class="q" d="m623.63,0v73.88C515.95,150.99,298.77,249.41,0,292.94,298.77,206,515.95,92.73,623.63,0Z" />
+  <path class="o" d="m.01,292.95C298.77,206,515.95,104.59,623.63,11.85V0C515.95,92.73,298.77,206,.01,292.95Z" />
+  <path class="k" d="m158.96,224.91c-53.76,26.01-119.34,40.13-158.96,49.55v-13.12c108.99-15.81,158.96-36.43,158.96-36.43Z" />
+  <path class="n" d="m396.36,209.98s-12.97,38.98-51.02,82.96h-165.44c49.76-11.8,126.19-35.64,216.47-82.96h-.01Z" />
+  <path class="l" d="m345.33,292.95c38.06-43.99,51.02-82.96,51.02-82.96,0,0-59.73,49.01-138.97,82.96h87.95Z" />
+  <path class="p" d="m623.63,73.88v-40.21c-151.47,130.73-367,203.63-381.49,208.44,175.11-48.85,305.54-113.84,381.49-168.23h0Z" />
+</svg>
