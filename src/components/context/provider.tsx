@@ -1,46 +1,55 @@
 import React from 'react'
-import { ThemeArguments, ITheme, ThemeVariants } from '~/const/theme'
+import { ThemeArguments, TTheme } from '~/const/theme'
 import { ThemeProvider as StThemeProvider } from 'styled-components'
 import Store from '~/utils/Store'
-import { ISettings } from '~/types/settings'
+import type { TSettings, TLanguage, TThemeVariants } from '~/types/settings'
+import { supportedLanguages, defaultValues } from '~/types/settings'
+import { getSytemTheme, getSystemLanguage } from '~/utils/getSystem'
 
 const store = new Store()
-const settings = store.get('settings') as ISettings
+const settings = store.get('settings') as TSettings
+const sytemTheme = getSytemTheme() as TThemeVariants
+let currentLanguage = getSystemLanguage() as TLanguage
+if (!supportedLanguages.includes(currentLanguage)) currentLanguage = defaultValues.language
 
-type TLang = 'en' | 'ru'
-type ThemeVariantsFunc = (theme: ThemeVariants) => ThemeVariants
+type ThemeVariantsFunc = (theme: TThemeVariants) => TThemeVariants
 
 interface SettingsContextProps {
-  themeName: ThemeVariants
-  theme: ITheme
-  setTheme: ((theme: ThemeVariants | ThemeVariantsFunc) => void) | (() => void)
+  themeName: TThemeVariants
+  theme: TTheme
+  setTheme: ((theme: TThemeVariants | ThemeVariantsFunc) => void) | (() => void)
   switchTheme: () => void
-  lang: TLang
-  setLanguage: (name: TLang) => void
+  lang: TLanguage
+  setLanguage: (name: TLanguage) => void
 }
 
 export const SettingsContext = React.createContext<SettingsContextProps>({
-  themeName: 'light',
-  get theme(): ITheme {
+  themeName: sytemTheme,
+  get theme(): TTheme {
     return ThemeArguments[this.themeName]
   },
   setTheme: () => {},
   switchTheme: () => {},
-  lang: 'en',
+  lang: currentLanguage,
   setLanguage: () => {},
 })
 
 export const SettingsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [currentTheme, setCurrentTheme] = React.useState<ThemeVariants>((settings.theme ?? 'light') as ThemeVariants)
-  const [lang, setLanguage] = React.useState<TLang>('en')
+  const [currentTheme, setCurrentTheme] = React.useState<TThemeVariants>((settings.theme ?? sytemTheme) as TThemeVariants)
+  const [lang, setCurrentLanguage] = React.useState<TLanguage>((settings.lang ?? currentLanguage) as TLanguage)
 
-  const setTheme = (theme: ThemeVariants | ThemeVariantsFunc) => {
+  const setTheme = (theme: TThemeVariants | ThemeVariantsFunc) => {
     const newTheme = theme instanceof Function ? theme(currentTheme) : theme
     setCurrentTheme(newTheme)
     store.set('settings.theme', newTheme)
   }
 
   const switchTheme = () => setTheme(prev => (prev === 'light' ? 'dark' : 'light'))
+
+  const setLanguage = (lang: TLanguage) => {
+    setCurrentLanguage(lang)
+    store.set('settings.lang', lang)
+  }
 
   return (
     <SettingsContext.Provider
