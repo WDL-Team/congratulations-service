@@ -6,6 +6,10 @@ const preview = css`
   border-radius: 0.75rem;
   position: relative;
 
+  > div {
+    border-radius: 0.75rem;
+  }
+
   &::after {
     content: 'preview';
     position: absolute;
@@ -17,8 +21,7 @@ const preview = css`
 
 export const StContainer = styled.article<{ $preview: boolean }>`
   box-sizing: border-box;
-  width: ${props => (props.$preview ? '100%' : 'calc(100% - 4rem)')};
-  padding: ${props => (props.$preview ? '1rem' : '2rem')};
-  margin: ${props => (props.$preview ? '0' : '2rem')};
+  width: 100%;
+  height: 100%;
   ${props => props.$preview && preview}
 `
