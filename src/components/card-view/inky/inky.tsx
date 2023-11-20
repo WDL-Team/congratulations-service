@@ -2,7 +2,7 @@ import { StContainer } from './styles'
 import type { TCardViewProps } from '..'
 import { parseText } from '../parse'
 
-export function CardBlank(props: TCardViewProps) {
+export function CardInky(props: TCardViewProps) {
   const { name = '', text = '' } = props
   const arr = parseText(text)
 
