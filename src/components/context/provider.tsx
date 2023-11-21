@@ -1,8 +1,8 @@
 import React from 'react'
-import { ThemeArguments } from '~/const/theme'
+import { ThemeArguments, ITheme } from '~/const/theme'
 import { ThemeProvider as StThemeProvider } from 'styled-components'
 import Store from '~/utils/Store'
-import type { TSettings, TLanguage, TThemeVariants, ITheme } from '~/types/settings'
+import type { TSettings, TLanguage, TThemeVariants } from '~/types/settings'
 import { supportedLanguages, defaultValues } from '~/types/settings'
 import { getSytemTheme, getSystemLanguage } from '~/utils/getSystem'
 
