@@ -36,8 +36,7 @@ const StAboutWrap = styled.div`
 const filter: Record<TThemeVariants, RuleSet> = {
   dark: css``,
   light: css`
-    background-blend-mode: color-dodge;
-    background-color: ${props => props.theme.colors.primary};
+    filter: invert(100%) sepia(60%);
   `,
 }
 const StFooterBg = styled.div`

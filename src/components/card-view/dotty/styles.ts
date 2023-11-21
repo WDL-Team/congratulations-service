@@ -1,8 +1,7 @@
-import styled, { css, RuleSet } from 'styled-components'
-import { TThemeVariants } from '~/types/settings'
+import styled, { css } from 'styled-components'
 import bgImage from './assets/bg.svg'
 
-const filter: Record<TThemeVariants, RuleSet> = {
+const filter = {
   dark: css`
     background-blend-mode: color-burn;
     background-color: #448;

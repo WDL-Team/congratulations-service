@@ -42,8 +42,7 @@ const StGroupWrap = styled.div`
 const filter: Record<TThemeVariants, RuleSet> = {
   dark: css``,
   light: css`
-    background-blend-mode: color-dodge;
-    background-color: ${props => props.theme.colors.primary};
+    filter: invert(100%) sepia(60%);
   `,
 }
 const StLogo = styled.div`
@@ -63,5 +62,5 @@ const StHeaderBg = styled.div`
   background-image: url(${headerImg});
   background-size: cover;
   ${props => props.theme.name === 'light' && filter.light};
-  z-index: 0;
+  z-index: 1;
 `
