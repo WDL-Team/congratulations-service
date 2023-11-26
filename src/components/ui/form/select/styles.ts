@@ -30,22 +30,11 @@ export const StLabel = styled.label`
   position: absolute;
   pointer-events: none;
   left: 1rem;
-  top: 0.7rem;
-  transition: 0.3s ease all;
+  top: 0;
   color: ${props => props.theme.colors.text};
   opacity: 0.7;
-
-  ${StSelect}:focus ~ & {
-    font-size: 0.8rem;
-    left: 1rem;
-    top: 0;
-  }
-
-  ${StSelect}:not(:placeholder-shown) ~ & {
-    font-size: 0.8rem;
-    left: 1rem;
-    top: 0;
-  }
+  font-size: 0.8rem;
+  white-space: nowrap;
 `
 
 export const StSpan = styled.span`

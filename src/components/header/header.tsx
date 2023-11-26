@@ -50,9 +50,9 @@ const StLogo = styled.div`
   background-size: contain;
   width: 3rem;
   height: 3rem;
-  border-radius: 0.75rem;
-  background-color: ${props => props.theme.colors.primary};
 `
+// border-radius: 0.75rem; background-color: ${props => props.theme.colors.primary};
+
 const StHeaderBg = styled.div`
   position: absolute;
   left: 0;
