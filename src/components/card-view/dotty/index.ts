@@ -1,1 +1,1 @@
-export * from './dotty'
+export * from './card'
