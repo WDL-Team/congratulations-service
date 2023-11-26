@@ -14,8 +14,8 @@ export const CopyInput = ({ text, placeholder }: { text: string; placeholder: st
 
   return (
     <StContainer>
-      <StInput type="text" value={text} readOnly />
-      <StLabel>{placeholder}</StLabel>
+      <StInput type="text" id="copy_field" value={text} readOnly />
+      <StLabel htmlFor="copy_field">{placeholder}</StLabel>
       <StOpenButton src={openImg} alt="open" title="open" onClick={() => window.open(text, '_blank')} />
       <StCopyButton src={copyImg} alt="copy" title="copy" onClick={handleCopy} />
       {copyed && <StMessage>Copyed!</StMessage>}

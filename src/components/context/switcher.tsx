@@ -20,7 +20,7 @@ const StSwitchContainer = styled.div`
   display: inline-block;
   width: 48px;
   height: 24px;
-  background-color: ${({ theme }) => (theme.name === 'dark' ? theme.colors.tertiary : theme.colors.accent)};
+  background-color: ${({ theme }) => theme.colors.tertiary};
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.2s ease-in-out;

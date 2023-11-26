@@ -1,18 +1,25 @@
 import styled, { css, RuleSet } from 'styled-components'
-import { ThemeVariants } from '~/const/theme'
+import { TThemeVariants } from '~/types/settings'
 import { ThemeSwitcher } from '../context'
+import { LanguageSelector } from '@/context/selector'
+import { useLocalization } from '~/hooks/useLocalization'
 import logoImg from '~/assets/logo.svg'
 import headerImg from '~/assets/bg_header.svg'
 
 export const Header = () => {
+  const { loc } = useLocalization()
+
   return (
     <StHeader>
       <StHeaderBg />
-      <StLogoWrap>
+      <StGroupWrap>
         <StLogo />
-        <h3 style={{ display: 'inline' }}>Congratulations service</h3>
-      </StLogoWrap>
-      <ThemeSwitcher />
+        <h3>{loc('display_name')}</h3>
+      </StGroupWrap>
+      <StGroupWrap>
+        <LanguageSelector />
+        <ThemeSwitcher />
+      </StGroupWrap>
     </StHeader>
   )
 }
@@ -26,17 +33,16 @@ const StHeader = styled.header`
   align-items: center;
   color: ${props => props.theme.colors.text};
 `
-const StLogoWrap = styled.div`
+const StGroupWrap = styled.div`
   z-index: 1;
   display: flex;
   align-items: center;
   column-gap: 1rem;
 `
-const filter: Record<ThemeVariants, RuleSet> = {
+const filter: Record<TThemeVariants, RuleSet> = {
   dark: css``,
   light: css`
-    background-blend-mode: color-dodge;
-    background-color: ${props => props.theme.colors.primary};
+    filter: invert(100%) sepia(60%);
   `,
 }
 const StLogo = styled.div`
@@ -56,5 +62,5 @@ const StHeaderBg = styled.div`
   background-image: url(${headerImg});
   background-size: cover;
   ${props => props.theme.name === 'light' && filter.light};
-  z-index: 0;
+  z-index: 1;
 `
