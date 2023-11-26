@@ -1,26 +1,17 @@
-import EventBus from './EventBus'
+type Indexed = { [key in string | symbol]: unknown }
 
-// JSON.parse(localStorage.getItem('CongratStore'))
-
-export default class Store extends EventBus {
-  static EVENT_UPDATE = 'Update'
+export default class Store {
   static STORE_NAME = 'CongratStore'
-
   protected static _instance: Store
-
-  protected _state: { [key in string | symbol]: unknown } = {}
+  protected _state: Indexed = {}
 
   constructor() {
     if (Store._instance) return Store._instance
-    super()
     const savedState = localStorage.getItem(Store.STORE_NAME)
-    this._state = savedState ? JSON.parse(savedState) ?? {} : {}
+    if (savedState) {
+      this._state = JSON.parse(savedState) as Indexed
+    }
     Store._instance = this
-
-    this.on(Store.EVENT_UPDATE, () => {
-      // console.log('App store update')
-      localStorage.setItem(Store.STORE_NAME, JSON.stringify(this._state))
-    })
   }
 
   public getState() {
@@ -29,7 +20,7 @@ export default class Store extends EventBus {
 
   public removeState() {
     this._state = {}
-    this.emit(Store.EVENT_UPDATE)
+    this.emit()
   }
 
   public get(id: string) {
@@ -38,21 +29,23 @@ export default class Store extends EventBus {
 
   public set(id: string, value: unknown) {
     setValue(this._state, id, value)
-    this.emit(Store.EVENT_UPDATE)
+    this.emit()
+  }
+
+  private emit() {
+    localStorage.setItem(Store.STORE_NAME, JSON.stringify(this._state))
   }
 }
 
-type Indexed<T = any> = { [k in string | symbol]: T }
-
 function setValue(object: Indexed, path: string, value: unknown) {
   if (object !== Object(object)) return object
-  if (typeof path !== 'string' || path === '') throw new Error('Path must be string')
+  if (typeof path !== 'string' || path === '') throw new Error('App store. Path must be type of string.')
   let obj = object
   const arr = path.split('.')
   const last = arr.pop()
   arr.forEach(key => {
     if (!obj[key]) obj[key] = {}
-    obj = obj[key]
+    obj = obj[key] as Indexed
   })
   if (last) obj[last] = value
   return object
@@ -61,7 +54,7 @@ function setValue(object: Indexed, path: string, value: unknown) {
 function getValue(object: Indexed, path: string): unknown {
   if (object !== Object(object) || typeof path !== 'string' || path === '') {
     console.warn('App store. Wrong:', path)
-    return object
+    return undefined
   }
-  return path.split('.').reduce((obj, key) => (obj[key] !== undefined ? obj[key] : obj), object)
+  return path.split('.').reduce((obj, key) => (obj[key] !== undefined ? (obj[key] as Indexed) : obj), object)
 }
