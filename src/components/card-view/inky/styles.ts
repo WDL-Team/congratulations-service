@@ -1,8 +1,8 @@
 import styled, { css, keyframes, RuleSet } from 'styled-components'
-import { ThemeVariants } from '~/const/theme'
+import { TThemeVariants } from '~/types/settings'
 import bgImage from './assets/bg.svg'
 
-const filter: Record<ThemeVariants, RuleSet> = {
+const filter: Record<TThemeVariants, RuleSet> = {
   dark: css``,
   light: css`
     background-blend-mode: color-dodge;

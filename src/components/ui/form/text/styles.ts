@@ -64,13 +64,7 @@ export const StTemplateWrap = styled.div`
   top: 0;
   left: 40%;
   width: 30%;
-  display: flex;
-  align-items: center;
-  column-gap: 1rem;
-
-  > select {
-    margin-top: 0.1rem;
-  }
+  background-color: ${props => props.theme.colors.secondary};
 
   > span {
     font-size: 0.8rem;

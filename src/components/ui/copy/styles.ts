@@ -1,5 +1,5 @@
 import styled, { css, RuleSet } from 'styled-components'
-import { ThemeVariants } from '~/const/theme'
+import { TThemeVariants } from '~/types/settings'
 
 export const StContainer = styled.div`
   position: relative;
@@ -37,7 +37,7 @@ export const StLabel = styled.label`
   opacity: 0.7;
 `
 
-const filter: Record<ThemeVariants, RuleSet> = {
+const filter: Record<TThemeVariants, RuleSet> = {
   dark: css`
     filter: brightness(0) saturate(100%) invert(100%) sepia(1%) saturate(2344%) hue-rotate(335deg) brightness(119%) contrast(100%);
   `,

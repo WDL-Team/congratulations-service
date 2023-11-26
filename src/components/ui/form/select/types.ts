@@ -1,5 +1,5 @@
 export interface TFormSelectProps {
-  name: string
+  id: string
   options: string[]
   placeholder: string
   error?: boolean

@@ -4,11 +4,13 @@ import { StContainer, StSpan, StRest, StTextArea, StLabel, StTemplateWrap } from
 import { Select } from '../select'
 import { useSettings } from '@/context'
 import { textTemplates } from '~/const/templates'
+import { useLocalization } from '~/hooks/useLocalization'
 
-export const FormText: FC<TFormTextProps> = ({ name, placeholder, rest, onChange, errorMessage, error }) => {
+export const FormText: FC<TFormTextProps> = ({ id, placeholder, rest, onChange, errorMessage, error }) => {
   const { lang } = useSettings()
   const [options, setOptions] = useState<string[]>([])
   const ref = useRef<HTMLTextAreaElement>(null)
+  const { loc } = useLocalization()
 
   useEffect(() => {
     setOptions(textTemplates.map(obj => obj[lang].name))
@@ -26,12 +28,12 @@ export const FormText: FC<TFormTextProps> = ({ name, placeholder, rest, onChange
 
   return (
     <StContainer>
-      <StTextArea ref={ref} className="scrolled" name={name} onChange={onChange} />
-      <StLabel htmlFor={name}>{placeholder}</StLabel>
+      <StTextArea ref={ref} className="scrolled" id={id} onChange={onChange} />
+      <StLabel htmlFor={id}>{placeholder}</StLabel>
       <StRest>{rest}</StRest>
       <StTemplateWrap>
-        <span>Template:</span>
-        <Select name="template" options={options} onChange={selectTemplateHandler} />
+        <span>{loc('template')}:</span>
+        <Select id="template" options={options} onChange={selectTemplateHandler} />
       </StTemplateWrap>
       {error && <StSpan>{errorMessage}</StSpan>}
     </StContainer>

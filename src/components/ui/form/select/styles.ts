@@ -13,20 +13,17 @@ export const StContainer = styled.div`
   border: 1px solid ${props => props.theme.colors.primary};
   background-color: ${props => props.theme.colors.secondary};
   color: ${props => props.theme.colors.text};
+
+  > select {
+    margin-top: 1.5rem;
+  }
 `
 
 export const StSelect = styled.select`
   outline: none;
   border: none;
-  width: 100%;
-  height: 100%;
-  margin-top: 0.5rem;
-  color: ${props => props.theme.colors.text};
-  background-color: ${props => props.theme.colors.secondary};
-  -webkit-text-fill-color: ${props => props.theme.colors.text};
-  &:autofill {
-    transition: background-color 5000s ease-in-out 0s;
-  }
+  background-color: inherit;
+  color: inherit;
 `
 
 export const StLabel = styled.label`
