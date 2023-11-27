@@ -6,12 +6,24 @@ const cardNames = Object.keys(CardView)
   .filter(k => !Number.isFinite(Number(k)))
   .map(n => (n === 'Blank' ? '' : `/${n.toLowerCase()}.png`))
 
-export const Thumbnails = ({ select }: { select: HTMLSelectElement | null }) => {
-  console.log('Thumb: ', select)
+type TProps = {
+  refSelect: React.RefObject<HTMLSelectElement | null>
+  onChange?: (arg: HTMLSelectElement) => void
+}
+
+export const Thumbnails = ({ refSelect, onChange }: TProps) => {
+  const clickHandler = (i: number) => {
+    console.log(refSelect, i)
+    if (refSelect.current) {
+      refSelect.current.value = String(i)
+      if (onChange) onChange(refSelect.current)
+    }
+  }
+
   return (
     <StContainer>
       {cardNames.map((url, i) => (
-        <StThumb key={i} $url={url} onClick={() => console.log(select, i)} />
+        <StThumb key={i} $url={url} onClick={() => clickHandler(i)} />
       ))}
     </StContainer>
   )

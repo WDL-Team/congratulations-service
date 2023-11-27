@@ -49,10 +49,6 @@ export function Constructor() {
     setResult(prev => queryToString({ [el.id]: el.value }, prev))
   }
 
-  React.useEffect(() => {
-    console.log(refSelect.current)
-  }, [])
-
   return (
     <>
       <Welcome />
@@ -74,7 +70,7 @@ export function Constructor() {
             {/* <FormSubmit>Perform</FormSubmit> */}
           </form>
           {result && <CopyInput text={`${host}?${result}`} placeholder={loc('copy_placeholder')} />}
-          <Thumbnails select={refSelect.current} />
+          <Thumbnails refSelect={refSelect} onChange={changeHandler} />
         </article>
         {preview && <Congrats query={result} preview={true} />}
       </StContainer>
