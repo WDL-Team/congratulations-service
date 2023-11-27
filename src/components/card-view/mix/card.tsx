@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { StContainer, particles } from './styles'
+import { StContainer, StTitle, particles } from './styles'
 import type { TCardViewProps } from '..'
 import { parseText } from '../parse'
 import { useSettings } from '@/context'
@@ -32,7 +32,11 @@ export function CardMix(props: TCardViewProps) {
   return (
     <StContainer>
       <Particles style={particles} id="tsparticles" options={options} init={particlesInit} />
-      <h1 style={{ zIndex: 2 }}>{name}</h1>
+      <StTitle>
+        {name.split('').map((chr, i) => (
+          <span key={i}>{chr}</span>
+        ))}
+      </StTitle>
       <div style={{ zIndex: 2 }}>{arr}</div>
     </StContainer>
   )
