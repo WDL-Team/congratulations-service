@@ -10,7 +10,7 @@ import { CardConfetti } from './confetti'
 import { CardSnow } from './snow'
 import { CardMix } from './mix'
 import { CardLovely } from './lovely'
-// import { CardFunny } from './funny'
+import { CardFunny } from './funny'
 import { CardHaunted } from './haunted'
 import { CardBalloons } from './balloons'
 import { CardGifts } from './gifts'
@@ -29,7 +29,7 @@ enum CardView {
   Snow,
   Mix,
   Lovely,
-  // Funny,
+  Funny,
   Haunted,
   Balloons,
   Gifts,
@@ -54,7 +54,7 @@ const cardViewList: TCardList = {
   [CardView.Snow]: CardSnow,
   [CardView.Mix]: CardMix,
   [CardView.Lovely]: CardLovely,
-  // [CardView.Funny]: CardFunny,
+  [CardView.Funny]: CardFunny,
   [CardView.Haunted]: CardHaunted,
   [CardView.Balloons]: CardBalloons,
   [CardView.Gifts]: CardGifts,

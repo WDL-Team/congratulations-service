@@ -42,6 +42,7 @@ export const StTitle = styled.div`
   -webkit-perspective: 100px;
 
   > b {
+    white-space: pre;
     background: linear-gradient(${({ theme }) => theme.colors.text}, ${({ theme }) => theme.colors.accent});
     background-clip: text;
     color: transparent;
