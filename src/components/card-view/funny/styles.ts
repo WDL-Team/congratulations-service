@@ -1,4 +1,22 @@
 import styled, { keyframes } from 'styled-components'
+import bgImage from './assets/funny.svg'
+
+const move = keyframes`
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(0.5rem);
+  }
+`
+const hue = keyframes`
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
+`
 
 export const StContainer = styled.div`
   position: relative;
@@ -8,21 +26,24 @@ export const StContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-image: url(${bgImage});
+  background-position: center;
+  background-size: cover;
 
-  > div {
+  div {
+    font-family: cursive;
     width: fit-content;
+    background-image: -webkit-linear-gradient(92deg, #28c76f, #0396ff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: ${hue} 10s infinite linear;
+    -webkit-animation: ${hue} 10s infinite linear;
   }
 `
-const move = keyframes`
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(0.5rem);
-  }
-`
+
 export const StTitle = styled.h1`
-  margin: 0%.5rem;
+  margin: 0.5rem;
 
   span {
     text-transform: uppercase;
