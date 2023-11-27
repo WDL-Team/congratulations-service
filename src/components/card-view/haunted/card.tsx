@@ -7,9 +7,9 @@ import type { ITheme } from '~/const/theme'
 import Particles from 'react-particles'
 import { loadSlim } from 'tsparticles-slim'
 import type { Engine, RecursivePartial, IOptions } from 'tsparticles-engine'
-import bgImage from './assets/bg.svg'
+import bgImage from './assets/haunted.svg'
 
-export function CardSnow(props: TCardViewProps) {
+export function CardHaunted(props: TCardViewProps) {
   const { name = '', text = '' } = props
   const arr = parseText(text)
   const { theme } = useSettings()
@@ -31,9 +31,10 @@ export function CardSnow(props: TCardViewProps) {
 
 const getOptions = (theme: ITheme) => {
   return {
+    autoPlay: true,
     background: {
       color: {
-        value: theme.colors.primary,
+        value: '#232741',
       },
       image: `url(${bgImage})`,
       position: '50% 50%',
@@ -41,7 +42,7 @@ const getOptions = (theme: ITheme) => {
       size: 'cover',
       opacity: 1,
     },
-    autoPlay: true,
+    defaultThemes: {},
     delay: 0,
     fullScreen: false,
     detectRetina: true,
@@ -74,7 +75,102 @@ const getOptions = (theme: ITheme) => {
           enable: true,
         },
       },
+      modes: {
+        trail: {
+          delay: 1,
+          pauseOnStop: false,
+          quantity: 1,
+        },
+        attract: {
+          distance: 200,
+          duration: 0.4,
+          easing: 'ease-out-quad',
+          factor: 1,
+          maxSpeed: 50,
+          speed: 1,
+        },
+        bounce: {
+          distance: 200,
+        },
+        bubble: {
+          distance: 250,
+          duration: 2,
+          mix: false,
+          opacity: 0,
+          size: 0,
+          divs: {
+            distance: 200,
+            duration: 0.4,
+            mix: false,
+            selectors: [],
+          },
+        },
+        connect: {
+          distance: 80,
+          links: {
+            opacity: 0.5,
+          },
+          radius: 60,
+        },
+        grab: {
+          distance: 400,
+          links: {
+            blink: false,
+            consent: false,
+            opacity: 1,
+          },
+        },
+        push: {
+          default: true,
+          groups: [],
+          quantity: 4,
+        },
+        remove: {
+          quantity: 2,
+        },
+        repulse: {
+          distance: 400,
+          duration: 0.4,
+          factor: 100,
+          speed: 1,
+          maxSpeed: 50,
+          easing: 'ease-out-quad',
+          divs: {
+            distance: 200,
+            duration: 0.4,
+            factor: 100,
+            speed: 1,
+            maxSpeed: 50,
+            easing: 'ease-out-quad',
+            selectors: [],
+          },
+        },
+        slow: {
+          factor: 3,
+          radius: 200,
+        },
+        light: {
+          area: {
+            gradient: {
+              start: {
+                value: '#333',
+              },
+              stop: {
+                value: '#000',
+              },
+            },
+            radius: 1000,
+          },
+          shadow: {
+            color: {
+              value: '#000000',
+            },
+            length: 2000,
+          },
+        },
+      },
     },
+    manualParticles: [],
     particles: {
       bounce: {
         horizontal: {
@@ -121,7 +217,7 @@ const getOptions = (theme: ITheme) => {
         },
       },
       color: {
-        value: '#fff',
+        value: '#000',
         animation: {
           h: {
             count: 0,
@@ -163,7 +259,7 @@ const getOptions = (theme: ITheme) => {
           enable: false,
           rotate: {
             x: 600,
-            y: 1200,
+            y: 600,
           },
         },
         center: {
@@ -174,7 +270,7 @@ const getOptions = (theme: ITheme) => {
         },
         decay: 0,
         distance: {},
-        direction: 'bottom',
+        direction: 'none',
         drift: 0,
         enable: true,
         gravity: {
@@ -202,9 +298,9 @@ const getOptions = (theme: ITheme) => {
           right: 'out',
           top: 'out',
         },
-        random: false,
+        random: true,
         size: false,
-        speed: 2,
+        speed: 1,
         spin: {
           acceleration: 0,
           enable: false,
@@ -225,7 +321,7 @@ const getOptions = (theme: ITheme) => {
           height: 1080,
         },
         limit: 0,
-        value: 400,
+        value: 160,
       },
       opacity: {
         random: {
@@ -233,12 +329,12 @@ const getOptions = (theme: ITheme) => {
           minimumValue: 0.1,
         },
         value: {
-          min: 0.1,
-          max: 0.5,
+          min: 0,
+          max: 1,
         },
         animation: {
           count: 0,
-          enable: false,
+          enable: true,
           speed: 1,
           decay: 0,
           delay: 0,
@@ -246,7 +342,7 @@ const getOptions = (theme: ITheme) => {
           mode: 'auto',
           startValue: 'random',
           destroy: 'none',
-          minimumValue: 0.1,
+          minimumValue: 0,
         },
       },
       reduceDuplicates: false,
@@ -274,19 +370,19 @@ const getOptions = (theme: ITheme) => {
         },
         value: {
           min: 1,
-          max: 10,
+          max: 3,
         },
         animation: {
           count: 0,
           enable: false,
-          speed: 40,
+          speed: 4,
           decay: 0,
           delay: 0,
           sync: false,
           mode: 'auto',
           startValue: 'random',
           destroy: 'none',
-          minimumValue: 0.1,
+          minimumValue: 0.3,
         },
       },
       stroke: {
@@ -430,9 +526,49 @@ const getOptions = (theme: ITheme) => {
         },
         width: 1,
       },
+      links: {
+        blink: false,
+        color: {
+          value: '#ffffff',
+        },
+        consent: false,
+        distance: 150,
+        enable: false,
+        frequency: 1,
+        opacity: 0.4,
+        shadow: {
+          blur: 5,
+          color: {
+            value: '#000',
+          },
+          enable: false,
+        },
+        triangles: {
+          enable: false,
+          frequency: 1,
+        },
+        width: 1,
+        warp: false,
+      },
+      repulse: {
+        random: {
+          enable: false,
+          minimumValue: 0,
+        },
+        value: 0,
+        enabled: false,
+        distance: 1,
+        duration: 1,
+        factor: 1,
+        speed: 1,
+      },
     },
     pauseOnBlur: true,
     pauseOnOutsideViewport: true,
+    responsive: [],
+    smooth: false,
+    style: {},
+    themes: [],
     zLayers: 100,
     motion: {
       disable: false,

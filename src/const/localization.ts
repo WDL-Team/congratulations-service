@@ -2,7 +2,7 @@ import { TLanguage } from '~/types/settings'
 
 export const localization: { [key in TLanguage]: Record<string, string> } = {
   en: {
-    display_name: 'Congratulations service',
+    display_name: 'Greet card',
     constructor_header: 'Preparing congratulations',
     recipient_placeholder: 'Recipient name',
     card_placeholder: 'Card view',

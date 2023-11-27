@@ -7,9 +7,18 @@ import type { ITheme } from '~/const/theme'
 import Particles from 'react-particles'
 import { loadSlim } from 'tsparticles-slim'
 import type { Engine, RecursivePartial, IOptions } from 'tsparticles-engine'
-import bgImage from './assets/bg.svg'
+import bgImage from './assets/vawes.svg'
+import apple from './assets/apple.png'
+import candy1 from './assets/candy1.png'
+import candy2 from './assets/candy2.png'
+import conf1 from './assets/conf1.png'
+import conf2 from './assets/conf2.png'
+import gift from './assets/gift.png'
+import heart from './assets/heart.png'
+import orange from './assets/orange.png'
+import star from './assets/star.png'
 
-export function CardSnow(props: TCardViewProps) {
+export function CardMix(props: TCardViewProps) {
   const { name = '', text = '' } = props
   const arr = parseText(text)
   const { theme } = useSettings()
@@ -31,6 +40,7 @@ export function CardSnow(props: TCardViewProps) {
 
 const getOptions = (theme: ITheme) => {
   return {
+    autoPlay: true,
     background: {
       color: {
         value: theme.colors.primary,
@@ -41,7 +51,7 @@ const getOptions = (theme: ITheme) => {
       size: 'cover',
       opacity: 1,
     },
-    autoPlay: true,
+    defaultThemes: {},
     delay: 0,
     fullScreen: false,
     detectRetina: true,
@@ -52,12 +62,12 @@ const getOptions = (theme: ITheme) => {
       events: {
         onClick: {
           enable: true,
-          mode: 'repulse',
+          mode: 'push',
         },
         onDiv: {
-          selectors: [],
+          selectors: '#repulse-div',
           enable: false,
-          mode: [],
+          mode: 'repulse',
           type: 'circle',
         },
         onHover: {
@@ -65,7 +75,7 @@ const getOptions = (theme: ITheme) => {
           mode: 'bubble',
           parallax: {
             enable: false,
-            force: 2,
+            force: 60,
             smooth: 10,
           },
         },
@@ -74,7 +84,102 @@ const getOptions = (theme: ITheme) => {
           enable: true,
         },
       },
+      modes: {
+        trail: {
+          delay: 1,
+          pauseOnStop: false,
+          quantity: 1,
+        },
+        attract: {
+          distance: 200,
+          duration: 0.4,
+          easing: 'ease-out-quad',
+          factor: 1,
+          maxSpeed: 50,
+          speed: 1,
+        },
+        bounce: {
+          distance: 200,
+        },
+        bubble: {
+          distance: 400,
+          duration: 2,
+          mix: false,
+          opacity: 0.8,
+          size: 40,
+          divs: {
+            distance: 200,
+            duration: 0.4,
+            mix: false,
+            selectors: [],
+          },
+        },
+        connect: {
+          distance: 80,
+          links: {
+            opacity: 0.5,
+          },
+          radius: 60,
+        },
+        grab: {
+          distance: 400,
+          links: {
+            blink: false,
+            consent: false,
+            opacity: 1,
+          },
+        },
+        push: {
+          default: true,
+          groups: [],
+          quantity: 4,
+        },
+        remove: {
+          quantity: 2,
+        },
+        repulse: {
+          distance: 200,
+          duration: 0.4,
+          factor: 100,
+          speed: 1,
+          maxSpeed: 50,
+          easing: 'ease-out-quad',
+          divs: {
+            distance: 200,
+            duration: 0.4,
+            factor: 100,
+            speed: 1,
+            maxSpeed: 50,
+            easing: 'ease-out-quad',
+            selectors: [],
+          },
+        },
+        slow: {
+          factor: 3,
+          radius: 200,
+        },
+        light: {
+          area: {
+            gradient: {
+              start: {
+                value: '#ffffff',
+              },
+              stop: {
+                value: '#000000',
+              },
+            },
+            radius: 1000,
+          },
+          shadow: {
+            color: {
+              value: '#000000',
+            },
+            length: 2000,
+          },
+        },
+      },
     },
+    manualParticles: [],
     particles: {
       bounce: {
         horizontal: {
@@ -121,7 +226,7 @@ const getOptions = (theme: ITheme) => {
         },
       },
       color: {
-        value: '#fff',
+        value: '#ffffff',
         animation: {
           h: {
             count: 0,
@@ -174,7 +279,7 @@ const getOptions = (theme: ITheme) => {
         },
         decay: 0,
         distance: {},
-        direction: 'bottom',
+        direction: 'none',
         drift: 0,
         enable: true,
         gravity: {
@@ -225,29 +330,7 @@ const getOptions = (theme: ITheme) => {
           height: 1080,
         },
         limit: 0,
-        value: 400,
-      },
-      opacity: {
-        random: {
-          enable: true,
-          minimumValue: 0.1,
-        },
-        value: {
-          min: 0.1,
-          max: 0.5,
-        },
-        animation: {
-          count: 0,
-          enable: false,
-          speed: 1,
-          decay: 0,
-          delay: 0,
-          sync: false,
-          mode: 'auto',
-          startValue: 'random',
-          destroy: 'none',
-          minimumValue: 0.1,
-        },
+        value: 80,
       },
       reduceDuplicates: false,
       shadow: {
@@ -264,18 +347,83 @@ const getOptions = (theme: ITheme) => {
       shape: {
         close: true,
         fill: true,
-        options: {},
-        type: 'circle',
+        options: {
+          character: {
+            fill: false,
+            font: 'Verdana',
+            style: '',
+            value: '*',
+            weight: '400',
+          },
+          char: {
+            fill: false,
+            font: 'Verdana',
+            style: '',
+            value: '*',
+            weight: '400',
+          },
+          polygon: {
+            sides: 5,
+          },
+          star: {
+            sides: 5,
+          },
+          image: [
+            {
+              src: apple,
+              width: 64,
+              height: 64,
+            },
+            {
+              src: candy1,
+              width: 64,
+              height: 64,
+            },
+            {
+              src: candy2,
+              width: 64,
+              height: 64,
+            },
+            {
+              src: conf1,
+              width: 64,
+              height: 64,
+            },
+            {
+              src: conf2,
+              width: 64,
+              height: 64,
+            },
+            {
+              src: gift,
+              width: 64,
+              height: 64,
+            },
+            {
+              src: heart,
+              width: 64,
+              height: 64,
+            },
+            {
+              src: orange,
+              width: 64,
+              height: 64,
+            },
+            {
+              src: star,
+              width: 64,
+              height: 64,
+            },
+          ],
+        },
+        type: 'image',
       },
       size: {
         random: {
-          enable: true,
+          enable: false,
           minimumValue: 1,
         },
-        value: {
-          min: 1,
-          max: 10,
-        },
+        value: 16,
         animation: {
           count: 0,
           enable: false,
@@ -291,6 +439,38 @@ const getOptions = (theme: ITheme) => {
       },
       stroke: {
         width: 0,
+        color: {
+          value: '#000000',
+          animation: {
+            h: {
+              count: 0,
+              enable: false,
+              offset: 0,
+              speed: 1,
+              delay: 0,
+              decay: 0,
+              sync: true,
+            },
+            s: {
+              count: 0,
+              enable: false,
+              offset: 0,
+              speed: 1,
+              delay: 0,
+              decay: 0,
+              sync: true,
+            },
+            l: {
+              count: 0,
+              enable: false,
+              offset: 0,
+              speed: 1,
+              delay: 0,
+              decay: 0,
+              sync: true,
+            },
+          },
+        },
       },
       zIndex: {
         random: {
@@ -397,17 +577,17 @@ const getOptions = (theme: ITheme) => {
       },
       rotate: {
         random: {
-          enable: false,
+          enable: true,
           minimumValue: 0,
         },
         value: 0,
         animation: {
-          enable: false,
-          speed: 0,
+          enable: true,
+          speed: 5,
           decay: 0,
           sync: false,
         },
-        direction: 'clockwise',
+        direction: 'random',
         path: false,
       },
       orbit: {
@@ -430,9 +610,49 @@ const getOptions = (theme: ITheme) => {
         },
         width: 1,
       },
+      links: {
+        blink: false,
+        color: {
+          value: '#000',
+        },
+        consent: false,
+        distance: 150,
+        enable: false,
+        frequency: 1,
+        opacity: 0.4,
+        shadow: {
+          blur: 5,
+          color: {
+            value: '#000',
+          },
+          enable: false,
+        },
+        triangles: {
+          enable: false,
+          frequency: 1,
+        },
+        width: 1,
+        warp: false,
+      },
+      repulse: {
+        random: {
+          enable: false,
+          minimumValue: 0,
+        },
+        value: 0,
+        enabled: false,
+        distance: 1,
+        duration: 1,
+        factor: 1,
+        speed: 1,
+      },
     },
     pauseOnBlur: true,
     pauseOnOutsideViewport: true,
+    responsive: [],
+    smooth: false,
+    style: {},
+    themes: [],
     zLayers: 100,
     motion: {
       disable: false,
