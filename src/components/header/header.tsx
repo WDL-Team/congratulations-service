@@ -12,7 +12,7 @@ export const Header = () => {
   return (
     <StHeader>
       <StHeaderBg />
-      <StGroupWrap>
+      <StGroupWrap style={{ cursor: 'pointer' }} onClick={() => location.replace(location.origin)}>
         <StLogo />
         <h3>{loc('display_name')}</h3>
       </StGroupWrap>

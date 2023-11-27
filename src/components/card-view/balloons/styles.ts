@@ -13,6 +13,14 @@ export const StContainer = styled.div`
   background-repeat: no-repeat;
   background-size: contain;
 
+  > h1 {
+    background: linear-gradient(${({ theme }) => theme.colors.text}, ${({ theme }) => theme.colors.accent});
+    background-clip: text;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   > div {
     width: fit-content;
   }
