@@ -12,6 +12,7 @@ import { StContainer, StNameWrap, StOptionsWrap, StSwitcherWrap } from './styles
 import { cardViewNames } from '@/card-view'
 import { Switcher } from '@/ui/switcher'
 import { useLocalization } from '~/hooks/useLocalization'
+import { Thumbnails } from '@/card-view/thumbnail'
 
 const MAX = 2024 - 18 - 7 - 28 // Max url length - host - card - name length
 
@@ -21,6 +22,7 @@ export function Constructor() {
   const [rest, setRest] = useState(MAX)
   const [preview, setPreview] = useState(true)
   const { loc } = useLocalization()
+  const refSelect = React.createRef<HTMLSelectElement>()
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -47,6 +49,10 @@ export function Constructor() {
     setResult(prev => queryToString({ [el.id]: el.value }, prev))
   }
 
+  React.useEffect(() => {
+    console.log(refSelect.current)
+  }, [])
+
   return (
     <>
       <Welcome />
@@ -57,7 +63,7 @@ export function Constructor() {
             <StNameWrap>
               <FormInput type="text" id="name" placeholder={loc('recipient_placeholder')} onChange={changeHandler} />
               <StOptionsWrap>
-                <FormSelect id="card" options={cardViewNames} onChange={changeHandler} placeholder={loc('card_placeholder')} />
+                <FormSelect id="card" ref={refSelect} options={cardViewNames} onChange={changeHandler} placeholder={loc('card_placeholder')} />
                 <StSwitcherWrap>
                   <span>{loc('preview')}:</span>
                   <Switcher toggled={preview} onClick={() => setPreview(prev => !prev)} />
@@ -68,6 +74,7 @@ export function Constructor() {
             {/* <FormSubmit>Perform</FormSubmit> */}
           </form>
           {result && <CopyInput text={`${host}?${result}`} placeholder={loc('copy_placeholder')} />}
+          <Thumbnails select={refSelect.current} />
         </article>
         {preview && <Congrats query={result} preview={true} />}
       </StContainer>

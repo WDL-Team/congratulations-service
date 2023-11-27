@@ -17,7 +17,7 @@ import { CardGifts } from './gifts'
 
 export type TCardViewProps = Omit<TCongratsData, 'card'>
 
-enum CardView {
+export enum CardView {
   Blank,
   Inky,
   Dotty,

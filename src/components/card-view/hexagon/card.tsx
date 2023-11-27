@@ -7,7 +7,7 @@ import type { ITheme } from '~/const/theme'
 import Particles from 'react-particles'
 import { loadSlim } from 'tsparticles-slim'
 import type { Engine, RecursivePartial, IOptions } from 'tsparticles-engine'
-import bgImage from './assets/bg.svg'
+import bgImage from './assets/hexagon.svg'
 
 export function CardHexagon(props: TCardViewProps) {
   const { name = '', text = '' } = props
