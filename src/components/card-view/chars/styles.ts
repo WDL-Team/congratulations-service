@@ -42,7 +42,6 @@ const vawes = keyframes`
 		);
 	}
 `
-
 export const StContainer = styled.div`
   position: relative;
   width: 100%;
