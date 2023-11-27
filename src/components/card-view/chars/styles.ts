@@ -59,12 +59,12 @@ export const StContainer = styled.div`
 
 export const StTitle = styled.div`
   position: relative;
-  height: 5rem;
+  height: 4em;
   width: 50%;
 
   & h1 {
     z-index: 2;
-    font-size: 5rem;
+    font-size: 4em;
     margin: 0;
     position: absolute;
     bottom: 0;

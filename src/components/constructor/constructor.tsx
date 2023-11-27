@@ -7,6 +7,7 @@ import { CopyInput } from '@/ui/copy'
 import { queryToString } from '~/utils/query'
 import { useRouter } from '~/hooks/useRouter'
 import { Congrats } from '@/congrats'
+import { Welcome } from '@/welcome/welcome'
 import { StContainer, StNameWrap, StOptionsWrap, StSwitcherWrap } from './styles'
 import { cardViewNames } from '@/card-view'
 import { Switcher } from '@/ui/switcher'
@@ -47,26 +48,29 @@ export function Constructor() {
   }
 
   return (
-    <StContainer $preview={preview}>
-      <article>
-        <form onSubmit={submitHandler}>
-          <h2 style={{ alignSelf: 'center' }}>{loc('constructor_header')}</h2>
-          <StNameWrap>
-            <FormInput type="text" id="name" placeholder={loc('recipient_placeholder')} onChange={changeHandler} />
-            <StOptionsWrap>
-              <FormSelect id="card" options={cardViewNames} onChange={changeHandler} placeholder={loc('card_placeholder')} />
-              <StSwitcherWrap>
-                <span>{loc('preview')}:</span>
-                <Switcher toggled={preview} onClick={() => setPreview(prev => !prev)} />
-              </StSwitcherWrap>
-            </StOptionsWrap>
-          </StNameWrap>
-          <FormText id="text" placeholder={loc('textarea_placeholder')} rest={rest} onChange={changeHandler} />
-          {/* <FormSubmit>Perform</FormSubmit> */}
-        </form>
-        {result && <CopyInput text={`${host}?${result}`} placeholder={loc('copy_placeholder')} />}
-      </article>
-      {preview && <Congrats query={result} preview={true} />}
-    </StContainer>
+    <>
+      <Welcome />
+      <StContainer $preview={preview}>
+        <article>
+          <form onSubmit={submitHandler}>
+            <h2 style={{ alignSelf: 'center' }}>{loc('constructor_header')}</h2>
+            <StNameWrap>
+              <FormInput type="text" id="name" placeholder={loc('recipient_placeholder')} onChange={changeHandler} />
+              <StOptionsWrap>
+                <FormSelect id="card" options={cardViewNames} onChange={changeHandler} placeholder={loc('card_placeholder')} />
+                <StSwitcherWrap>
+                  <span>{loc('preview')}:</span>
+                  <Switcher toggled={preview} onClick={() => setPreview(prev => !prev)} />
+                </StSwitcherWrap>
+              </StOptionsWrap>
+            </StNameWrap>
+            <FormText id="text" placeholder={loc('textarea_placeholder')} rest={rest} onChange={changeHandler} />
+            {/* <FormSubmit>Perform</FormSubmit> */}
+          </form>
+          {result && <CopyInput text={`${host}?${result}`} placeholder={loc('copy_placeholder')} />}
+        </article>
+        {preview && <Congrats query={result} preview={true} />}
+      </StContainer>
+    </>
   )
 }
