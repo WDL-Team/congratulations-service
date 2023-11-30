@@ -7,7 +7,7 @@ export const Footer = () => {
     <StFooter>
       <StFooterBg />
       <StAboutWrap>
-        <a href="https://github.com/WDL-Team">WDL-Team</a>
+        <a href="https://github.com/WDL-Team">WDL Team</a>
         <div>© 2023</div>
       </StAboutWrap>
       <span>Footer</span>

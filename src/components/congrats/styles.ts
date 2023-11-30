@@ -19,7 +19,7 @@ const preview = css`
   }
 `
 
-export const StContainer = styled.article<{ $preview: boolean }>`
+export const StContainer = styled.section<{ $preview: boolean }>`
   box-sizing: border-box;
   width: 100%;
   height: 100%;

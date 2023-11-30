@@ -1,1 +1,1 @@
-export * from './bubbles'
+export * from './card'

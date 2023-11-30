@@ -64,6 +64,8 @@ export const StTemplateWrap = styled.div`
   top: 0;
   left: 40%;
   width: 30%;
+  display: flex;
+  flex-wrap: nowrap;
   background-color: ${props => props.theme.colors.secondary};
 
   > span {

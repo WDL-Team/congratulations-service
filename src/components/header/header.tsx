@@ -12,7 +12,7 @@ export const Header = () => {
   return (
     <StHeader>
       <StHeaderBg />
-      <StGroupWrap>
+      <StGroupWrap style={{ cursor: 'pointer' }} onClick={() => location.replace(location.origin)}>
         <StLogo />
         <h3>{loc('display_name')}</h3>
       </StGroupWrap>
@@ -50,9 +50,9 @@ const StLogo = styled.div`
   background-size: contain;
   width: 3rem;
   height: 3rem;
-  border-radius: 0.75rem;
-  background-color: ${props => props.theme.colors.primary};
 `
+// border-radius: 0.75rem; background-color: ${props => props.theme.colors.primary};
+
 const StHeaderBg = styled.div`
   position: absolute;
   left: 0;
