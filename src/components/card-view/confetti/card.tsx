@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { StContainer, particles } from './styles'
+import { StContainer, StTitle, particles } from './styles'
 import type { TCardViewProps } from '..'
 import { parseText } from '../parse'
 import Particles from 'react-particles'
@@ -38,7 +38,9 @@ export function CardConfetti(props: TCardViewProps) {
   return (
     <StContainer>
       <Particles style={particles} id="tsparticles" options={options} init={particlesInit} />
-      <h1 style={{ zIndex: 2 }}>{name}</h1>
+      <StTitle>
+        <span>{name}</span>
+      </StTitle>
       <div style={{ zIndex: 2 }}>{arr}</div>
     </StContainer>
   )

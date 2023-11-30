@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { StContainer, particles } from './styles'
+import { StContainer, StTitle, particles } from './styles'
 import type { TCardViewProps } from '..'
 import { parseText } from '../parse'
 import { useSettings } from '@/context'
@@ -22,7 +22,10 @@ export function CardChars(props: TCardViewProps) {
   return (
     <StContainer>
       <Particles style={particles} id="tsparticles" options={options} init={particlesInit} />
-      <h1 style={{ zIndex: 2 }}>{name}</h1>
+      <StTitle>
+        <h1>{name}</h1>
+        <h1>{name}</h1>
+      </StTitle>
       <div style={{ zIndex: 2 }}>{arr}</div>
     </StContainer>
   )

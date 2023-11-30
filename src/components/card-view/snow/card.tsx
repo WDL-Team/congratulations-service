@@ -7,6 +7,7 @@ import type { ITheme } from '~/const/theme'
 import Particles from 'react-particles'
 import { loadSlim } from 'tsparticles-slim'
 import type { Engine, RecursivePartial, IOptions } from 'tsparticles-engine'
+import bgImage from './assets/bg.svg'
 
 export function CardSnow(props: TCardViewProps) {
   const { name = '', text = '' } = props
@@ -30,6 +31,16 @@ export function CardSnow(props: TCardViewProps) {
 
 const getOptions = (theme: ITheme) => {
   return {
+    background: {
+      color: {
+        value: theme.colors.primary,
+      },
+      image: `url(${bgImage})`,
+      position: '50% 50%',
+      repeat: 'no-repeat',
+      size: 'cover',
+      opacity: 1,
+    },
     autoPlay: true,
     delay: 0,
     fullScreen: false,
@@ -110,7 +121,7 @@ const getOptions = (theme: ITheme) => {
         },
       },
       color: {
-        value: theme.colors.invert,
+        value: '#fff',
         animation: {
           h: {
             count: 0,

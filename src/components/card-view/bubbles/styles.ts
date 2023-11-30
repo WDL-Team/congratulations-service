@@ -1,4 +1,16 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const anim_appears = keyframes`
+  from{
+      letter-spacing: 2rem;
+      filter: blur(5px);
+      opacity: 0;
+  }to{
+      letter-spacing: 0;
+      filter: blur(0);
+      opacity: 1;
+  }
+`
 
 export const StContainer = styled.div`
   position: relative;
@@ -8,6 +20,11 @@ export const StContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  h1 {
+    animation: ${anim_appears} 2s;
+    text-align: center;
+  }
 
   > div {
     width: fit-content;
