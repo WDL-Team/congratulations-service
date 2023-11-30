@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 import { CardView } from '.'
 
-const src = './public/assets/thumb/'
+const src = import.meta.env.PROD ? './assets/thumb/' : './public/assets/thumb/'
 const cardNames = Object.keys(CardView)
   .filter(k => !Number.isFinite(Number(k)))
   .map(n => (n === 'Blank' ? '' : `/${n.toLowerCase()}.png`))

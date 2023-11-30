@@ -53,7 +53,7 @@ export function Constructor() {
     <>
       <Welcome />
       <StContainer $preview={preview}>
-        <article>
+        <section>
           <form onSubmit={submitHandler}>
             <h2 style={{ alignSelf: 'center' }}>{loc('constructor_header')}</h2>
             <StNameWrap>
@@ -71,7 +71,7 @@ export function Constructor() {
           </form>
           {result && <CopyInput text={`${host}?${result}`} placeholder={loc('copy_placeholder')} />}
           <Thumbnails refSelect={refSelect} onChange={changeHandler} />
-        </article>
+        </section>
         {preview && <Congrats query={result} preview={true} />}
       </StContainer>
     </>

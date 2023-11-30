@@ -7,7 +7,7 @@ export const StContainer = styled.div<{ $preview: boolean }>`
   column-gap: 1rem;
   z-index: 1;
 
-  > article {
+  > section {
     width: ${props => (props.$preview ? '50%' : '100%')};
   }
 
@@ -15,7 +15,7 @@ export const StContainer = styled.div<{ $preview: boolean }>`
     flex-direction: column;
     row-gap: 1rem;
 
-    > article {
+    > section {
       width: 100%;
     }
   }
