@@ -86,6 +86,7 @@ const secondString: RuleSet[] = new Array(14).fill('').map(
 const StSvgTitle = styled.svg`
   width: 50%;
   margin-bottom: 2rem;
+  z-index: 2;
 
   path {
     display: block;
