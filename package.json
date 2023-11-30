@@ -43,6 +43,6 @@
     "styled-components": "^6"
   },
   "engines": {
-    "node": "21.2"
+    "node": "18"
   }
 }

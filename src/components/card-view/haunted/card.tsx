@@ -2,8 +2,6 @@ import { useCallback } from 'react'
 import { StContainer, particles } from './styles'
 import type { TCardViewProps } from '..'
 import { parseText } from '../parse'
-import { useSettings } from '@/context'
-import type { ITheme } from '~/const/theme'
 import Particles from 'react-particles'
 import { loadSlim } from 'tsparticles-slim'
 import type { Engine, RecursivePartial, IOptions } from 'tsparticles-engine'
@@ -12,13 +10,12 @@ import bgImage from './assets/haunted.svg'
 export function CardHaunted(props: TCardViewProps) {
   const { name = '', text = '' } = props
   const arr = parseText(text)
-  const { theme } = useSettings()
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine)
   }, [])
 
-  const options = getOptions(theme)
+  const options = getOptions()
 
   return (
     <StContainer>
@@ -29,7 +26,7 @@ export function CardHaunted(props: TCardViewProps) {
   )
 }
 
-const getOptions = (theme: ITheme) => {
+const getOptions = () => {
   return {
     autoPlay: true,
     background: {

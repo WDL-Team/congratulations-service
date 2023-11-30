@@ -1,6 +1,23 @@
 # Congratulations service
 
-An our project, that provides service to make and receive custom congratulations.
+Provides service to make and receive custom congratulations.
+
+<div align="center">
+
+![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=vercel.com/wdl-team/greet-card)
+![Size](https://4.vercel.app/github/size/WDL-Team/greet-card)
+
+</div>
+
+![balloons](./src/assets/thumb/dark/balloons.png)
+![haunted](./src/assets/thumb/dark/haunted.png)
+![snow](./src/assets/thumb/dark/snow.png)
+![lovely](./src/assets/thumb/light/lovely.png)
+![gifts](./src/assets/thumb/dark/gifts.png)
+![inky](./src/assets/thumb/light/inky.png)
+![mix](./src/assets/thumb/dark/mix.png)
+![bubbles](./src/assets/thumb/light/bubbles.png)
+![confetti](./src/assets/thumb/dark/confetti.png)
 
 ### Technology stack
 + React
@@ -14,10 +31,10 @@ An our project, that provides service to make and receive custom congratulations
 | Command | Description |
 | --- | --- |
 | `curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh \| bash` | Install nvm |
-| `nvm install v21.2.0` | Install node v21.2.0 |
-| `nvm alias default v21.2.0` | Set node v21.2.0 as default |
-| `git clone git@github.com:WDL-Team/congratulations-service.git congrats` | Clone project |
-| `cd congrats` | Enter project folder |
+| `nvm install v18.0.0` | Install node v18.0.0 |
+| `nvm alias default v18.0.0` | Set node v18.0.0 as default |
+| `git clone git@github.com:WDL-Team/congratulations-service.git greet-card` | Clone project |
+| `cd greet-card` | Enter project folder |
 | `npm install` | Install project dependencies |
 | `npm run prepare` | Install husky hooks |
 

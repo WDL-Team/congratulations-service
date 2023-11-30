@@ -83,7 +83,7 @@ const secondString: RuleSet[] = new Array(14).fill('').map(
   `
 )
 
-export const StSvgTitle = styled.svg`
+const StSvgTitle = styled.svg`
   width: 50%;
   margin-bottom: 2rem;
 
