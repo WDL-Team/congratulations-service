@@ -14,6 +14,8 @@ import { CardFunny } from './funny'
 import { CardHaunted } from './haunted'
 import { CardBalloons } from './balloons'
 import { CardGifts } from './gifts'
+import { CardLava } from './lava'
+import { CardSea } from './sea'
 
 export type TCardViewProps = Omit<TCongratsData, 'card'>
 
@@ -33,6 +35,8 @@ export enum CardView {
   Haunted,
   Balloons,
   Gifts,
+  Lava,
+  Sea,
 }
 
 export const cardViewNames = Object.keys(CardView).filter(val => !Number.isFinite(Number(val)))
@@ -58,6 +62,8 @@ const cardViewList: TCardList = {
   [CardView.Haunted]: CardHaunted,
   [CardView.Balloons]: CardBalloons,
   [CardView.Gifts]: CardGifts,
+  [CardView.Lava]: CardLava,
+  [CardView.Sea]: CardSea,
 }
 
 export const getCardViewByName = (card: number | string = 0) => {

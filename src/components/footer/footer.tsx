@@ -26,7 +26,7 @@ const StFooter = styled.footer`
 `
 const StAboutWrap = styled.div`
   z-index: 1;
-  margin: auto 1rem 1rem auto;
+  margin: 0 1rem 0 auto;
   text-align: center;
 
   & a {

@@ -1,10 +1,11 @@
 import styled, { css } from 'styled-components'
 import { CardView } from '.'
 
-const src = import.meta.env.PROD ? './assets/thumb/' : './public/assets/thumb/'
-const cardNames = Object.keys(CardView)
-  .filter(k => !Number.isFinite(Number(k)))
-  .map(n => (n === 'Blank' ? '' : `/${n.toLowerCase()}.png`))
+// const src = import.meta.env.PROD ? './assets/thumb/' : './public/assets/thumb/'
+const src = './assets/thumb/'
+const cardNames = Object.keys(CardView).filter(k => !Number.isFinite(Number(k)))
+
+const getUrl = (name: string) => `/${name.toLowerCase()}.png`
 
 type TProps = {
   refSelect: React.RefObject<HTMLSelectElement | null>
@@ -13,7 +14,7 @@ type TProps = {
 
 export const Thumbnails = ({ refSelect, onChange }: TProps) => {
   const clickHandler = (i: number) => {
-    console.log(refSelect, i)
+    // console.log(refSelect, i)
     if (refSelect.current) {
       refSelect.current.value = String(i)
       if (onChange) onChange(refSelect.current)
@@ -22,8 +23,8 @@ export const Thumbnails = ({ refSelect, onChange }: TProps) => {
 
   return (
     <StContainer>
-      {cardNames.map((url, i) => (
-        <StThumb key={i} $url={url} onClick={() => clickHandler(i)} />
+      {cardNames.map((name, i) => (
+        <StThumb key={i} $name={name} onClick={() => clickHandler(i)} title={name} />
       ))}
     </StContainer>
   )
@@ -35,16 +36,16 @@ const StContainer = styled.div`
   grid-template-columns: repeat(5, 1fr);
   gap: 1rem;
 `
-const StThumb = styled.div<{ $url: string }>`
+const StThumb = styled.div<{ $name: string }>`
   border-radius: 0.75rem;
   flex-grow: 1;
   aspect-ratio: 19/10;
   border: 1px solid ${({ theme }) => theme.colors.secondary};
   cursor: pointer;
   ${props =>
-    props.$url &&
-    css<{ $url: string }>`
-      background-image: url(${src}${({ theme }) => theme.name}${props => props.$url});
+    props.$name !== 'Blank' &&
+    css<{ $name: string }>`
+      background-image: url(${src}${({ theme }) => theme.name}${props => getUrl(props.$name)});
       background-position: center;
       background-size: 110%;
       transition: all 200ms ease-in-out;

@@ -25,5 +25,6 @@ export const StContainer = styled.section<{ $preview: boolean }>`
   height: 100%;
   display: flex;
   align-items: center;
+  font-size: 3vw;
   ${props => props.$preview && preview}
 `
