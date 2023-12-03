@@ -20,14 +20,24 @@ export const StContainer = styled.div<{ $preview: boolean }>`
     }
   }
 `
+
+export const StForm = styled.form`
+  background-color: ${({ theme }) => theme.colors.secondary};
+  border-radius: 0.75rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+`
+
 export const StNameWrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   column-gap: 1rem;
+  /*
   > div {
     width: 50%;
   }
+ */
 `
 
 export const StOptionsWrap = styled.div`
@@ -45,9 +55,11 @@ export const StSwitcherWrap = styled.div`
   height: 3rem;
   box-sizing: border-box;
   margin-top: 0.5rem;
+  /* 
   background-color: ${props => props.theme.colors.secondary};
   > span {
     opacity: 0.7;
     font-size: 0.8rem;
   }
+  */
 `

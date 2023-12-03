@@ -28,7 +28,7 @@ export const FormText: FC<TFormTextProps> = ({ id, placeholder, rest, onChange, 
 
   return (
     <StContainer>
-      <StTextArea ref={ref} className="scrolled" id={id} onChange={onChange} />
+      <StTextArea ref={ref} className="scrolled" id={id} placeholder={''} onChange={onChange} />
       <StLabel htmlFor={id}>{placeholder}</StLabel>
       <StRest>{rest}</StRest>
       <StTemplateWrap>

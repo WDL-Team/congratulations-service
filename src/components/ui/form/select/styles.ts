@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export const StContainer = styled.div`
+export const StContainer = styled.div<{ $hidden: boolean }>`
   position: relative;
-  display: flex;
+  display: ${props => (props.$hidden ? 'none' : 'flex')};
   flex-direction: column;
   border-radius: 0.75rem;
   padding: 0 0.75rem 0 1rem;
@@ -20,6 +20,7 @@ export const StContainer = styled.div`
 `
 
 export const StSelect = styled.select`
+  margin-top: 2px;
   outline: none;
   border: none;
   background-color: inherit;

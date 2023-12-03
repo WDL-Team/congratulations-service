@@ -12,6 +12,17 @@ export const StContainer = styled.div`
   border: 1px solid ${props => props.theme.colors.primary};
   background-color: ${props => props.theme.colors.secondary};
   color: ${props => props.theme.colors.text};
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 1.25rem;
+    left: 0;
+    width: calc(100% - 0.5rem);
+    height: 1px;
+    background-color: ${props => props.theme.colors.primary};
+    margin: 0 0.25rem;
+  }
 `
 
 export const StTextArea = styled.textarea`
@@ -25,13 +36,19 @@ export const StTextArea = styled.textarea`
   color: ${props => props.theme.colors.text};
   background-color: ${props => props.theme.colors.secondary};
   resize: vertical;
+  /*
+  padding: 0 0.5rem;
+  box-sizing: border-box;
+  border: 1px solid ${props => props.theme.colors.primary};
+  border-radius: 0.75rem;
+ */
 `
 
 export const StLabel = styled.label`
   position: absolute;
   pointer-events: none;
   left: 1rem;
-  top: 0.7rem;
+  top: 2rem;
   opacity: 0.7;
   transition: all 0.3s ease;
 

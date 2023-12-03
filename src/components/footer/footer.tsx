@@ -25,7 +25,7 @@ const StFooter = styled.footer`
   background-color: ${props => props.theme.colors.primary};
 `
 const StAboutWrap = styled.div`
-  z-index: 1;
+  z-index: 7;
   margin: 0 1rem 1rem auto;
   text-align: center;
 
@@ -40,6 +40,7 @@ const filter: Record<TThemeVariants, RuleSet> = {
   `,
 }
 const StFooterBg = styled.div`
+  pointer-events: none;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -48,5 +49,5 @@ const StFooterBg = styled.div`
   background-image: url(${footerImg});
   background-size: cover;
   ${props => props.theme.name === 'light' && filter.light};
-  z-index: 0;
+  z-index: 5;
 `
