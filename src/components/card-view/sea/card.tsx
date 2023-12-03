@@ -46,7 +46,7 @@ export function CardSea(props: TCardViewProps) {
   React.useEffect(() => {
     ref.current = setInterval(updateFishes, 50)
     return () => clearTimeout(ref.current)
-  }, [])
+  }, [updateFishes])
 
   return (
     <StContainer>

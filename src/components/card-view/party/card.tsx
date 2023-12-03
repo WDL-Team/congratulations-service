@@ -16,7 +16,7 @@ export function CardParty(props: TCardViewProps) {
     { top: 40, left: 70 },
   ])
 
-  const updateFishes = React.useCallback(() => {
+  const updateBalloons = React.useCallback(() => {
     setPos(prev =>
       prev.map(p => ({
         top: p.top < -20 ? 100 : p.top - DELTA,
@@ -26,9 +26,9 @@ export function CardParty(props: TCardViewProps) {
   }, [])
 
   React.useEffect(() => {
-    ref.current = setInterval(updateFishes, 50)
+    ref.current = setInterval(updateBalloons, 50)
     return () => clearTimeout(ref.current)
-  }, [])
+  }, [updateBalloons])
 
   return (
     <StContainer>
