@@ -4,19 +4,17 @@ Provides service to make and receive custom congratulations.
 
 <div align="center">
 
-![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=vercel.com/wdl-team/greet-card)
-![Size](https://4.vercel.app/github/size/WDL-Team/greet-card)
+[![Vercel](https://therealsujitk-vercel-badge.vercel.app/?app=vercel.com/wdl-team/greet-card)](https://greet-card.vercel.app/)
+[![Size](https://4.vercel.app/github/size/WDL-Team/greet-card)](#installation)
 
-</div>
-
-![balloons](./public/assets/thumb/dark/balloons.jpg)
 ![haunted](./public/assets/thumb/dark/haunted.jpg)
-![snow](./public/assets/thumb/dark/snow.jpg)
-![lovely](./public/assets/thumb/light/lovely.jpg)
+![sea](./public/assets/thumb/light/sea.jpg)
 ![gifts](./public/assets/thumb/dark/gifts.jpg)
+![snow](./public/assets/thumb/light/snow.jpg)
 ![inky](./public/assets/thumb/light/inky.jpg)
 ![mix](./public/assets/thumb/dark/mix.jpg)
-![bubbles](./public/assets/thumb/light/bubbles.jpg)
+
+</div>
 
 ### Technology stack
 + React
@@ -25,6 +23,7 @@ Provides service to make and receive custom congratulations.
 + ESLint
 + Prettier
 + styled-components
++ tsParticles
 
 ### Installation
 | Command | Description |
