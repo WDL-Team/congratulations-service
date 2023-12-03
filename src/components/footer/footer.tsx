@@ -10,12 +10,12 @@ export const Footer = () => {
         <a href="https://github.com/WDL-Team">WDL Team</a>
         <div>© 2023</div>
       </StAboutWrap>
-      <span>Footer</span>
     </StFooter>
   )
 }
 
 const StFooter = styled.footer`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,7 +26,7 @@ const StFooter = styled.footer`
 `
 const StAboutWrap = styled.div`
   z-index: 1;
-  margin: 0 1rem 0 auto;
+  margin: 0 1rem 1rem auto;
   text-align: center;
 
   & a {

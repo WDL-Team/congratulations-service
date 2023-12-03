@@ -1,6 +1,34 @@
-import styled from 'styled-components'
+import styled, { css, keyframes, RuleSet } from 'styled-components'
 import bgImage from './assets/sea.svg'
 
+const anim_name_appear = keyframes`
+  from{
+      letter-spacing: 2rem;
+      filter: blur(5px);
+      opacity: 0;
+  }to{
+      letter-spacing: 0;
+      filter: blur(0);
+      opacity: 1;
+  }
+`
+const anim_text_appear = keyframes`
+  from{
+      transform: translateY(2rem);
+      filter: blur(5px);
+      opacity: 0;
+  }to{
+      filter: blur(0);
+      opacity: 1;
+  }
+`
+const anim_text_delay: RuleSet[] = new Array(15).fill('').map(
+  (_, i) => css`
+    p:nth-child(${i + 1}) {
+      animation-delay: ${i * 0.5}s;
+    }
+  `
+)
 export const StContainer = styled.div`
   position: relative;
   width: 100%;
@@ -17,7 +45,14 @@ export const StContainer = styled.div`
 
   h1 {
     z-index: 2;
+    animation: ${anim_name_appear} 2s;
+    text-align: center;
   }
+  p {
+    opacity: 0;
+    animation: ${anim_text_appear} 1s forwards;
+  }
+  ${anim_text_delay}
 `
 
 export const StFish1 = styled.img`

@@ -37,7 +37,7 @@ export function CardSea(props: TCardViewProps) {
         },
         {
           top: prev[2].top < -10 ? 100 : prev[2].top - 0.1,
-          left: prev[2].top < -10 ? Math.random() * 90 : prev[2].left - 0.03,
+          left: prev[2].top < -10 ? Math.random() * 80 + 10 : prev[2].left - 0.03,
         },
       ]
     })
