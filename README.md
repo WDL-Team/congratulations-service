@@ -9,14 +9,14 @@ Provides service to make and receive custom congratulations.
 
 </div>
 
-![balloons](./public/assets/thumb/dark/balloons.png)
-![haunted](./public/assets/thumb/dark/haunted.png)
-![snow](./public/assets/thumb/dark/snow.png)
-![lovely](./public/assets/thumb/light/lovely.png)
-![gifts](./public/assets/thumb/dark/gifts.png)
-![inky](./public/assets/thumb/light/inky.png)
-![mix](./public/assets/thumb/dark/mix.png)
-![bubbles](./public/assets/thumb/light/bubbles.png)
+![balloons](./public/assets/thumb/dark/balloons.jpg)
+![haunted](./public/assets/thumb/dark/haunted.jpg)
+![snow](./public/assets/thumb/dark/snow.jpg)
+![lovely](./public/assets/thumb/light/lovely.jpg)
+![gifts](./public/assets/thumb/dark/gifts.jpg)
+![inky](./public/assets/thumb/light/inky.jpg)
+![mix](./public/assets/thumb/dark/mix.jpg)
+![bubbles](./public/assets/thumb/light/bubbles.jpg)
 
 ### Technology stack
 + React

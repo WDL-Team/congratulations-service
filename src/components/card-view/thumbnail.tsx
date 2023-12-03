@@ -6,7 +6,7 @@ import { useLocalization } from '~/hooks/useLocalization'
 const src = './assets/thumb/'
 const cardNames = Object.keys(CardView).filter(k => !Number.isFinite(Number(k)))
 
-const getUrl = (name: string) => `/${name.toLowerCase()}.png`
+const getUrl = (name: string) => `/${name.toLowerCase()}.jpg`
 
 type TProps = {
   refSelect: React.RefObject<HTMLSelectElement | null>
